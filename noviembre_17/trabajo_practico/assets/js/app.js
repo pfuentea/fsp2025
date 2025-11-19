@@ -14,3 +14,6 @@ fetch("footer.html")
         foot.innerHTML=html;
         foot.style.display ="block";
         });
+
+
+
