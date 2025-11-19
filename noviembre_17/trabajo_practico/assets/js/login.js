@@ -1,5 +1,7 @@
 let usuarioValido='admin' ;
 let contrasenaValida='adm123';
+const LS_CURRENT_USER_KEY= 'currentUser';
+
 
 $(document).ready(function(){
 
@@ -11,8 +13,12 @@ $(document).ready(function(){
         console.log('pwd:',pwd)
 
         if(user==usuarioValido && pwd==contrasenaValida){
+            
+            localStorage.setItem(LS_CURRENT_USER_KEY , JSON.stringify(user));
+            
+
             console.log('ok login')
-            localStorage.setItem('currentUser',user);
+            //localStorage.setItem('currentUser',user);
             window.location.href='index.html';            
         }
         else{
@@ -22,7 +28,16 @@ $(document).ready(function(){
    })
 });
 
- 
+function getCurrentUser(){
+    const data = localStorage.getItem(LS_CURRENT_USER_KEY);
+    if (!data) return null;
+
+    try{
+        return JSON.parse(data);
+    } catch(e){
+        return null;
+    }
+} 
 
 
 
