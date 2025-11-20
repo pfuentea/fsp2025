@@ -39,5 +39,10 @@ function getCurrentUser(){
     }
 } 
 
+function setCurrentUser(){
+    // nos sirva para setear un usuario
+    // en particular se pueden "borrar" el usuario -> setCurrentUser(null)
+}
+
 
 

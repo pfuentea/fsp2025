@@ -72,11 +72,9 @@
             </div>
         </div>
 
-
-
-
         <div id="footer">
         </div>
+        
     </div>
 
     <script
@@ -84,9 +82,11 @@
 
     <script src="assets/js/app.js">        
     </script>  
+    <script src="assets/js/saldo.js">        
+    </script> 
     <script>
         $(document).ready(function(){
-            $('#saldo').text(1000);
+            $('#saldo').text(getSaldo());
 
             $('#enviar').on('click',function(){
                 const contacto=$('#contacto').val();
@@ -99,6 +99,8 @@
                 if(saldo-monto >=0){
                     // actualizar el saldo
                     saldo=saldo-monto;
+                    
+                    setSaldo(saldo);
                     $('#saldo').text(saldo);
                     //agregar contacto a la lista con su cuenta
                     
@@ -119,16 +121,7 @@
                     // mostrar mensaje de error en caso de que algo vaya mal             
                      $('#MntError').removeClass('d-none');
                 }
-
-
-
-                         
-                
-
-
-
             })
-
         })
     </script> 
 
