@@ -55,7 +55,11 @@ usuarios={
                      "direccion2":"San diego 45"
                      }
                 },
-}
+    }
 
+
+print(usuarios["usuario1"]["nombre"])
 print(f"Edad del usuario 2:{usuarios["usuario2"]["edad"]}")
 print(f"Direccion 2 del usuario 2:{usuarios["usuario2"]["direcciones"]["direccion2"]}")
+
+
