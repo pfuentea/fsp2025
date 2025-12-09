@@ -1,10 +1,10 @@
 # BY HERNAN
 libros={
-    "B001":{"titulo":"El Método pellegrini","autor":"Francisco Sagredo, 1975","genero":"biografía deportiva","stock":30},
-    "B002":{"titulo":"Los Chicos de la guerra","autor":"Daniel Kon, 1956","genero":"drama","stock":30},
-	"B003":{"titulo":"El tercer ojo","autor":" Lobsang Rampa, 1910","genero":"exoterismo","stock":20},
-    "B004":{"titulo":"Barrio Bravo","autor":" Roberto Meléndez, 1985","genero":"crónicas de futbol","stock":30},
-    "B005":{"titulo":"El código da Vinci","autor":"Dan Brown, 1964","genero":"Thriller de Misterio","stock":30},
+    "B001":{"titulo":"El Método pellegrini","autor":("Francisco Sagredo", 1975),"genero":"biografía deportiva","stock":30},
+    "B002":{"titulo":"Los Chicos de la guerra","autor":("Daniel Kon", 1956),"genero":"drama","stock":30},
+	"B003":{"titulo":"El tercer ojo","autor":("Lobsang Rampa", 1910),"genero":"exoterismo","stock":20},
+    "B004":{"titulo":"Barrio Bravo","autor":("Roberto Meléndez", 1985) ,"genero":"crónicas de futbol","stock":30},
+    "B005":{"titulo":"El código da Vinci","autor":("Dan Brown", 1964),"genero":"Thriller de Misterio","stock":30},
 }
 
 def get_codigo():
@@ -30,6 +30,7 @@ def menu():
 
 while True:
     menu()
+    print(libros["B005"]["autor"][1]) #para llegar al año de nacimiento del autor
     opcion=input("Ingrese una opción:")
     
     if opcion=="99":
@@ -40,7 +41,7 @@ while True:
         print("Ingrese los datos del nuevo libro")
         v_titulo=input("Título :")
         v_autor=input("Autor :")
-        v_year=input("Año nacimiento del autor : ")
+        v_year=int(input("Año nacimiento del autor : "))
         v_genero=input("Género :")
         v_stock=int(input("Stock (numeros enteros): "))
                                             
@@ -52,7 +53,7 @@ while True:
         try:
             libros[v_new_clave.upper()]={
                 "titulo":v_titulo,
-                "autor": v_autor+","+ v_year,
+                "autor": (v_autor , v_year),
                 "genero":v_genero,
                 "stock":int(v_stock),
                 }
@@ -89,3 +90,6 @@ while True:
             print(f"Género :{libro["genero"]}")
             print(f"Stock :{libro["stock"]}")
             print("--------------------")
+
+
+            
