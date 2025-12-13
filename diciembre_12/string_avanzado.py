@@ -43,9 +43,11 @@ print(texto+"|")
 # 2.- Convertir todo a minúsculas
 print(f"{texto.lower()}")
 # 3.- Reemplazar Aureliano por su nombre
-
+ejercicio=texto.strip().lower().replace("aureliano", "yuri")
+print(ejercicio)
 # 4.- Verificar si el texto termina con "Python!!"
-
+termina = texto.endswith("Python!!")
+print (termina)
 # 5.- Dividir el texto en palabras y mostar cuantas tiene
 palabras = texto.split()
 print(palabras)
