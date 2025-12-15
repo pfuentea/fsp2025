@@ -1,0 +1,4 @@
+Pedro,23,pedro@gmail.com
+Josefina,23,josefina@gmail.com
+laura,14,laura@gmail.com
+jose,43,pepe@gmail.com
