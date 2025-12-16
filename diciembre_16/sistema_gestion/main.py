@@ -61,13 +61,39 @@ def validar_rut(rut):
 # busco dentro de la lista un elemento que tenga como llave el rut
 # si lo encuentro, devuelvo el indice donde está el estudiante
 # si no devuelvo -1
-def buscar_indice_por_rut(rut):
-    for i, alumno in enumerate(estudiantes):
-        if rut in alumno:
-            return i
-    
-    return -1
+'''
+if rut in estudiantes:
+estudiantes=
+[
+{"12345654-0":
+    { "nombre":"Pedro",
+      "email":"pedro@gmail.com",
+      "edad":25
+    }
+},
+{"12345654-0":
+    { "nombre":"Pedro",
+      "email":"pedro@gmail.com",
+      "edad":25
+    }
+},
+{"12345654-0":
+    { "nombre":"Pedro",
+      "email":"pedro@gmail.com",
+      "edad":25
+    }
+}
+]
 
+
+'''
+
+
+def buscar_indice_por_rut(rut):
+    for indice, alumno in enumerate(estudiantes):
+        if rut in alumno:
+            return indice
+    return -1
 
 def obtener_estudiante_por_rut(rut):
     # busco el indice del estudiante que tenga el rut ingresado
@@ -76,7 +102,6 @@ def obtener_estudiante_por_rut(rut):
     if indice == -1:
         return None
     return estudiantes[indice]
-
 
 # CRUD (create-read-update-delete)
 # create
@@ -114,7 +139,35 @@ def buscar_estudiante():
 
 # update
 def editar_estudiante():
-    pass
+    try:
+        rut=validar_rut(input("Ingrese el rut del estudiante a buscar:"))
+        indice=buscar_indice_por_rut(rut)
+        if indice == -1:
+            print("No existe estudiante con ese rut")
+            return
+        datos=estudiantes[indice][rut]
+        ''' esto es lo que obtengo en datos
+        { "nombre":"Pedro",
+        "email":"pedro@gmail.com",
+        "edad":25
+        }
+        '''
+        print("Deje en blanco paramantener el valor actual.")
+        print(f"Nombre:{datos["nombre"]}")
+        print(f"Email:{datos["email"]}")
+        print(f"Edad:{datos["edad"]}")
+        nuevo_nombre=input("Nuevo nombre:")
+        nuevo_correo=input("Nuevo email:")
+        nueva_edad=input("Nueva edad:")
+
+        if nuevo_nombre:
+            datos["nombre"]=validar_nombre(nuevo_nombre)
+        if nuevo_correo:
+            datos["email"]=validar_nombre(nuevo_correo)
+        if nueva_edad:
+            datos["edad"]=validar_nombre(nueva_edad)
+    except ValueError as e:
+        print(f"Error:{e}")
 # delete
 
 # TRABAJO CON ARCHIVOS
