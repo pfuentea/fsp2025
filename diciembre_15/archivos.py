@@ -33,7 +33,7 @@ def ingreso_usuario():
     edad=input("Ingrese la edad:")
     correo=input("Ingrese el correo:")
     # modo "a" es para agregar (append)
-    with open("usuarios.txt","a",encoding="utf-8") as archivo:
+    with open("./archivos/usuarios.txt","a",encoding="utf-8") as archivo:
         archivo.write(f"{nombre},{edad},{correo}\n")
 
 '''
