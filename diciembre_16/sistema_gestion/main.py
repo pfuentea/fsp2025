@@ -2,7 +2,7 @@
 SISTEMA DE GESTION DE ALUMNOS
 
 {"12345654-0":
-    { "nombre":"Pedro",
+    { "nombre":(nombre,apellido),
       "email":"pedro@gmail.com",
       "edad":25
     }
@@ -109,11 +109,12 @@ def crear_estudiante():
     try:
         rut=validar_rut(input("Ingrese el rut del estudiante:"))
         nombre=validar_nombre(input("Ingrese el nombre:"))
+        apellido=validar_nombre(input("Ingrese el apellido:"))
         email=validar_correo(input("Ingrese el email:"))
         edad=validar_edad(input("Ingrese la edad:"))
         estudiante={
             rut:{
-                "nombre":nombre,
+                "nombre":(nombre,apellido),
                 "email":email,
                 "edad":edad
             }
@@ -123,6 +124,16 @@ def crear_estudiante():
         print(f"Error:{e}")
 
 # read (by_id, all)
+def listar_todos():
+    for indice, estudiante in enumerate(estudiantes):
+        rut=next(iter(estudiante.keys()))
+        datos=estudiante[rut]
+        print(f"Estudiante con el rut:{rut}")
+        print(f"Nombre:{datos["nombre"][0]}")
+        print(f"Apellido:{datos["nombre"][1]}")
+        print(f"Correo:{datos["email"]}")
+        print(f"Edad:{datos["edad"]}")
+
 def buscar_estudiante():
     try:
         rut=validar_rut(input("Ingrese el rut del estudiante a buscar:"))
@@ -132,7 +143,8 @@ def buscar_estudiante():
             print("El estudiante no existe")
         else:
             print(f"Estudiante con el rut:{rut}")
-            print(f"Nombre:{datos["nombre"]}")
+            print(f"Nombre:{datos["nombre"][0]}")
+            print(f"Apellido:{datos["nombre"][1]}")
             print(f"Correo:{datos["email"]}")
             print(f"Edad:{datos["edad"]}")
     except ValueError as e:
@@ -154,19 +166,31 @@ def editar_estudiante():
         }
         '''
         print("Deje en blanco paramantener el valor actual.")
-        print(f"Nombre:{datos["nombre"]}")
+        print(f"Nombre:{datos["nombre"][0]}")
+        print(f"Apellido:{datos["nombre"][1]}")
         print(f"Email:{datos["email"]}")
         print(f"Edad:{datos["edad"]}")
         nuevo_nombre=input("Nuevo nombre:")
+        nuevo_apellido=input("Nuevo apellido:")
         nuevo_correo=input("Nuevo email:")
         nueva_edad=input("Nueva edad:")
 
         if nuevo_nombre:
-            datos["nombre"]=validar_nombre(nuevo_nombre)
+            nombre=validar_nombre(nuevo_nombre)
+        else:
+            nombre=datos["nombre"][0]
+
+        if nuevo_apellido:
+            apellido=validar_nombre(nuevo_apellido)
+        else:
+            apellido=datos["nombre"][1]
+        
+        datos["nombre"]=(nombre,apellido)
+
         if nuevo_correo:
-            datos["email"]=validar_nombre(nuevo_correo)
+            datos["email"]=validar_correo(nuevo_correo)
         if nueva_edad:
-            datos["edad"]=validar_nombre(nueva_edad)
+            datos["edad"]=validar_edad(nueva_edad)
     except ValueError as e:
         print(f"Error:{e}")
 # delete
@@ -193,7 +217,43 @@ def borrar_estudiante():
 
 # TRABAJO CON ARCHIVOS
 #lectura
+def guardar_csv(archivo=archivo_csv):
+    if not estudiantes:
+        print("no hay estudiantes para guardar")
+    try:
+        with open(archivo,"w",encoding='utf-8') as f:
+            for estudiante in estudiantes:
+                rut=next(iter(estudiante.keys()))
+                datos=estudiante[rut]
+                f.write(f"{rut};{datos["nombre"][0]};{datos["nombre"][1]};{datos["email"]};{datos["edad"]}")
+        print("Guardado el archivo con éxito")
+    except OSError as e:
+        print("Error al escribir el archivo")
+    
 #escritura
+def cargar_csv(archivo=archivo_csv):
+    nuevas=[]
+    try:
+        with open(archivo,"r",encoding='utf-8') as f:
+            lineas=f.readlines()
+            if not lineas:
+                print("Archivo vacío!")
+                return
+            for linea in lineas:
+                rut,nombre,apellido,email,edad=linea.split(";")
+                #podrían existir validaciones de todos los campos antes de crear un registro
+
+                nuevas.append({rut:{"nombre":(nombre,apellido),
+                                    "email":email,
+                                    "edad":edad}})
+        estudiantes=nuevas
+    except FileNotFoundError:
+        print("El archivo no existe!")
+
+    except OSError as e:
+        print("Error al leer el archivo")
+
+
 # MENU
 def mostrar_menu():
     print("===== SISTEMA DE GESTION DE ESTUDIANTES=====")
@@ -201,6 +261,9 @@ def mostrar_menu():
     print("2.- Buscar Estudiante")
     print("3.- Editar Estudiante")
     print("4.- Borrar Estudiante")
+    print("5.- Listar todos los estudiante")
+    print("6.- Guardar en CSV")
+    print("7.- Cargar en CSV")
     print("0.- Salir")
 
 # PROGRAMA PRINCIPAL
@@ -217,11 +280,11 @@ def main():
         elif opcion=="4":
             borrar_estudiante()
         elif opcion=="5":
-            pass
+            listar_todos()
         elif opcion=="6":
-            pass
+            guardar_csv()
         elif opcion=="7":
-            pass
+            cargar_csv()
         elif opcion=="0":
             break
 
