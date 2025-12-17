@@ -269,7 +269,7 @@ def mostrar_menu():
     print("0.- Salir")
 
 # PROGRAMA PRINCIPAL
-def main():
+def ejecutar_menu():
     while True:
         mostrar_menu()
         opcion=input("Selecciona una opción:")
@@ -290,6 +290,6 @@ def main():
         elif opcion=="0":
             break
 
-main()
+ejecutar_menu()
 
 
