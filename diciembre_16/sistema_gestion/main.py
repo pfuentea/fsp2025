@@ -101,7 +101,7 @@ def obtener_estudiante_por_rut(rut):
     indice=buscar_indice_por_rut(rut)
     if indice == -1:
         return None
-    return estudiantes[indice]
+    return estudiantes[indice][rut]
 
 # CRUD (create-read-update-delete)
 # create
@@ -127,6 +127,7 @@ def buscar_estudiante():
     try:
         rut=validar_rut(input("Ingrese el rut del estudiante a buscar:"))
         datos=obtener_estudiante_por_rut(rut)
+        
         if datos is None:
             print("El estudiante no existe")
         else:
@@ -169,6 +170,26 @@ def editar_estudiante():
     except ValueError as e:
         print(f"Error:{e}")
 # delete
+def borrar_estudiante():
+    try:
+        rut=validar_rut(input("Ingrese el rut del estudiante a buscar:"))
+        indice=buscar_indice_por_rut(rut)
+        if indice == -1:
+            print("No existe estudiante con ese rut")
+            return
+        confirm=input(f"Está seguro que quiere borrar el estudiante con rut:{rut}?(s/n)").strip().lower()
+        
+        if confirm =="s":
+            estudiantes.pop(indice)
+            print("Estudiante eliminado")
+        elif confirm =="n":
+            print("Borrado cancelado")
+        else:
+            print("Opción no válida")
+
+    except ValueError as e:
+        print(f"Error:{e}")
+    
 
 # TRABAJO CON ARCHIVOS
 #lectura
@@ -194,7 +215,7 @@ def main():
         elif opcion=="3":
             editar_estudiante()
         elif opcion=="4":
-            pass
+            borrar_estudiante()
         elif opcion=="5":
             pass
         elif opcion=="6":
