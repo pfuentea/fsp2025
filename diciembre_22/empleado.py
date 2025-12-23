@@ -13,7 +13,7 @@ class Empleado:
     def sobre_el_minimo(sueldo):
         return sueldo > 500000
     def mostrar_empleado(self):
-        print(f"Nombre:{self.nombre}, sueldo:{self.salario}, aumento : {self.aumento_general}")
+        print(f"Nombre:{self.nombre}, sueldo:{self.salario}, aumento : {self.aumento_general}").
     
 if Empleado.sobre_el_minimo(501000):
     print("Sueldo sobre el mínimo")
@@ -40,7 +40,7 @@ for e in empleados:
 for e in empleados:
     e.mostrar_empleado()
     sueldo_target=e.salario
-    
+
     if Empleado.sobre_el_minimo(sueldo_target):
         print("Sueldo sobre el mínimo")
     else:
