@@ -1,3 +1,5 @@
+iva=0.19
+
 class Producto:
     def __init__(self,nombre,precio):
         self.nombre=nombre
@@ -6,7 +8,7 @@ class Producto:
 
     #GETTER
     def get_precio(self):
-        return self.__precio
+        return self.__precio*(1+iva)
     
     #SETTER
     def set_precio(self,nuevo_precio):
@@ -14,6 +16,9 @@ class Producto:
             self.__precio=nuevo_precio
         else:
             print("Error:el precio debe ser mayor a cero!")
+    
+    def mostrar_producto(self):
+        print(f"El producto {self.nombre} tiene un valor:{self.get_precio()}")
 
 #Crear un producto con precio válido
 prod1=Producto("Árbol de Pascua",40000)
