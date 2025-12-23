@@ -1,0 +1,49 @@
+📖 Métodos especiales en Python
+🔹 Creación y destrucción
+•	__new__ → Crea la instancia (antes de __init__).
+•	__init__ → Inicializa la instancia.
+•	__del__ → Destructor, se llama al eliminar el objeto.
+🔹 Representación
+•	__str__ → Representación legible (para usuarios).
+•	__repr__ → Representación técnica (para desarrolladores).
+•	__format__ → Controla format(obj).
+•	__bytes__ → Convierte a bytes.
+🔹 Conversión de tipos
+•	__int__, __float__, __complex__ → Conversión numérica.
+•	__bool__ → Valor booleano (bool(obj)).
+•	__index__ → Convierte a entero para índices.
+🔹 Comparaciones
+•	__eq__ → Igualdad (==).
+•	__ne__ → Diferente (!=).
+•	__lt__ → Menor (<).
+•	__le__ → Menor o igual (<=).
+•	__gt__ → Mayor (>).
+•	__ge__ → Mayor o igual (>=).
+🔹 Operadores aritméticos
+•	__add__, __sub__, __mul__, __truediv__, __floordiv__, __mod__, __pow__.
+•	__neg__, __pos__, __abs__.
+•	__round__.
+🔹 Contenedores y secuencias
+•	__len__ → len(obj).
+•	__getitem__ → obj[key].
+•	__setitem__ → obj[key] = valor.
+•	__delitem__ → del obj[key].
+•	__contains__ → x in obj.
+•	__iter__ → Iterador.
+•	__next__ → Siguiente elemento.
+•	__reversed__ → reversed(obj).
+•	__missing__ → Diccionarios personalizados cuando falta una clave.
+🔹 Atributos
+•	__getattr__ → Acceso a atributo inexistente.
+•	__getattribute__ → Intercepta cualquier acceso a atributos.
+•	__setattr__ → Asignación de atributos.
+•	__delattr__ → Eliminación de atributos.
+•	__dir__ → Controla dir(obj).
+🔹 Contexto y async
+•	__enter__, __exit__ → Bloques with.
+•	__aenter__, __aexit__ → Bloques async with.
+•	__await__ → Permite await obj.
+🔹 Llamables
+•	__call__ → Permite que el objeto se comporte como función.
+🔹 Hash y comparación avanzada
+•	__hash__ → Hash del objeto (para sets y dicts).
