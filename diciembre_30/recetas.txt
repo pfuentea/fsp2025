@@ -1,0 +1,37 @@
+@startuml
+title Demo 3 - Recetas médicas (Composición y colaboración)
+
+class Paciente {
+  +rut: String
+  +nombre: String
+  +solicitarReceta(): void
+}
+
+class Receta {
+  +id: int
+  +fecha: Date
+  +agregarMedicamento(m: Medicamento): void
+  +emitir(): void
+}
+
+class Medicamento {
+  +nombre: String
+  +dosis: String
+}
+
+class Farmaceutico {
+  +nombre: String
+  +validarReceta(r: Receta): bool
+  +dispensar(r: Receta): void
+}
+
+' Asociación: Paciente tiene recetas
+Paciente "1" -- "0..*" Receta : posee >
+
+' Composición: la receta está compuesta por medicamentos
+Receta "1" *-- "1..*" Medicamento : incluye
+
+' Colaboración: Receta puede usar Farmaceutico, pero no depende para existir
+Receta ..> Farmaceutico : colabora
+
+@enduml
