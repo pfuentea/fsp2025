@@ -4,7 +4,10 @@ RUTA_ARCHIVO=os.path.join(BASE_DIR,"prueba.txt")
 
 def read_01():
     print("---  Usando read() ---")
+    
     with open(RUTA_ARCHIVO,"r",encoding="utf-8") as archivo:
+        info=os.stat(RUTA_ARCHIVO)
+        print(f"Tamaño:{info.st_size}")
         contenido=archivo.read()
         print(contenido)
         print(f"Tipo devuelto:{type(contenido)}")
