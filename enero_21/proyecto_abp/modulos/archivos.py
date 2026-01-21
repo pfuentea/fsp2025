@@ -2,6 +2,8 @@ from pathlib import Path
 
 BASE_DIR=Path(__file__).resolve().parent.parent
 DIR_REPORTE=BASE_DIR / "reportes"
+DIR_LOGS=BASE_DIR / "logs"
+DIR_DATOS=BASE_DIR / "datos"
 #print(BASE_DIR)
 
 # crear los archivos y rutas que utilizaremos
