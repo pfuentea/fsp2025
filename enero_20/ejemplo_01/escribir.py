@@ -12,7 +12,8 @@ with open(RUTA_ARCHIVO,"w",encoding="utf-8") as archivo:
         if mensaje =="":
             break
         archivo.write(mensaje)
-        archivo.write("\n")
-    
+        archivo.write("\n") # agregamos salto de linea
+        # para crear un TAB \t , para un salto de linea es \n
+
     varias_lineas=['primera linea\n','segunda linea\n','tercera linea\n']
     archivo.writelines(varias_lineas)
