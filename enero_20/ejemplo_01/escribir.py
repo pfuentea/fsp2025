@@ -3,7 +3,7 @@ BASE_DIR=os.path.dirname(__file__)
 nombre_archivo="salida.txt"
 RUTA_ARCHIVO=os.path.join(BASE_DIR,nombre_archivo)
 
-with open(RUTA_ARCHIVO,"w",encoding="utf-8") as archivo:
+with open(RUTA_ARCHIVO,"r",encoding="utf-8") as archivo:
     archivo.write("Hola mundo 2\n")
     archivo.write("cómo están?\n")
 
