@@ -10,7 +10,7 @@ DIR_DATOS=BASE_DIR / "datos"
 archivo_reporte="resumen.txt"
 RUTA_REPORTE=DIR_REPORTE/archivo_reporte
 
-#print(RUTA_REPORTE)
+# print(RUTA_REPORTE)
 
 # DEBEMOS PREGUNTAR SI EXISTE EL DIRECTORIO, SI NO EXISTE CREARLO
 

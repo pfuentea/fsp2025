@@ -1,0 +1,21 @@
+¿qué otros elementos u objetos conocen de una base de datos?
+
+1.- Tablas (Definiciones y Restricciones )
+2.- Claves (primaria y foránea)
+3.- Atributos (Campos) 
+4.- Registros (filas)
+5.- Usuarios y roles (Permisos y Seguridad)
+6.- Relaciones 
+
+7.- "querys" => VISTAS (NORMALES Y MATERIALIZADAS)
+8.- INDICES
+9.- "Script" => PROCEDIMIENTO ALMACENADOS 
+10.- TRIGGERS o DISPARADORES 
+11.- FUNCIONES
+12.- SECUENCIAS 
+13.- PACKAGES 
+14.- ESQUEMAS => BASES DE DATOS
+15.- PARTICIONES
+16.- CURSORES
+
+
