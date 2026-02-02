@@ -69,4 +69,9 @@ where 1=1
 group by a.nombre,a.apellido
 
 
+-- UNION 
+select nombre, 100 as sueldo, 'dic' as mes from autores
+union 
+select nombre, 100 as sueldo, 'nov' as mes from autores
+
 
