@@ -1,4 +1,4 @@
-- sintaxis de INSERT forma 1 , insertar 1 valor
+-- sintaxis de INSERT forma 1 , insertar 1 valor
 -- INSERT INTO [TABLA] (COLUMNAS) VALUES (Los valores) ;
 INSERT INTO autores (nombre,apellido) VALUES ('Patricio','Fuentealba');
 
