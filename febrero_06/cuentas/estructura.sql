@@ -1,0 +1,4 @@
+CREATE TABLE Cuentas (
+	ID  SERIAL PRIMARY KEY,
+	Saldo DECIMAL(10, 2)
+	);
