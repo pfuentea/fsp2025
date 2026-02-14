@@ -6,17 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <a href="{% url 'index' %}">Inicio</a>
-        <a href="{% url 'servicios' %}">Servicios</a>
-        <a href="{% url 'nosotros' %}">Nosotros</a>
-        <a href="{% url 'contacto' %}">Contacto</a>
-    </nav>
 
+    {% block titulo %}
+    {% endblock %}
+
+    {% include 'menu.html'  %}
+    
     <main>
         {% block contenido %}
         {% endblock %}
     </main>
+
+    {% include 'footer.html'  %}
 
 </body>
 </html>
