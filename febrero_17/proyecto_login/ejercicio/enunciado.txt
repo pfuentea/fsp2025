@@ -1,0 +1,15 @@
+MINI APP EN DJANGO:
+- Crear una aplicación que cumpla con lo siguiente:
+1.- en la Ruta "/" mostrar un formulario con un solo campo "nombre"
+2.- Al enviar el POST, redirigir a la ruta /bienvenida/
+3.- en /bienvenida/ mostrar un mensaje:
+    "Bienvenido/a NOMBRE"
+
+Bonus:
+4.- El nombre se debe guardar en session para que en bienvenida se pueda ver 
+
+REQUISITOS:
+- usar forms de DJANGO
+- usar el sistema de templates con base.
+
+ 
