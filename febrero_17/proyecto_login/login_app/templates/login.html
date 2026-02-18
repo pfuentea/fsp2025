@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   Login
+{% endblock %}
+
+{% block contenido %}
+
+{{msg}}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar</button>
+</form>
+
+<a href="#" id="ver">ver</a>
+
+<script>
+    $(document).ready(function(){
+        $('#ver').on('click',function(){
+            $('#id_password').attr("type","text")
+        });
+    });
+</script>
+
+{% endblock %}
+
+
+

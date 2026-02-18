@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Reg Civil de {{ciudad}}
+{% endblock %}
+
+{% block contenido %}
+
+    <h1>BIENVENIDO {{nombre}}!</h1>
+
+    {% for vez in veces %}
+        <p>Hola {{vez}} </p>
+    {% endfor %}
+
+    {% if opcion == 1 %}
+        Opcion 1 activada
+    {% endif %}
+
+{% endblock %}
