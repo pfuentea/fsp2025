@@ -6,7 +6,8 @@ MINI APP EN DJANGO:
     "Bienvenido/a NOMBRE"
 
 Bonus:
-4.- El nombre se debe guardar en session para que en bienvenida se pueda ver 
+4.- El nombre se debe guardar en session para que en bienvenida se pueda ver cada vez 
+que se pasa por /bienvenida/ 
 
 REQUISITOS:
 - usar forms de DJANGO
