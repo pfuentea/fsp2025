@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Reg Civil de {{ciudad}}
+{% endblock %}
+
+{% block contenido %}
+
+    <h1>BIENVENIDO AL REGISTRO DE LIBROS!</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Año Publicación</th>
+            <th  class="text-center">Disponible</th>
+        </thead>
+        <tbody>
+            {% for libro in libros %}
+            <tr>
+                <td>{{libro.id}}</td>
+                <td>{{libro.titulo}}</td>
+                <td>{{libro.autor}}</td>
+                <td>{{libro.anio_publicacion}}</td>
+                <td class="text-center">
+                    {% if libro.disponible %}
+                    SI
+                    {% else %}
+                    NO
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
