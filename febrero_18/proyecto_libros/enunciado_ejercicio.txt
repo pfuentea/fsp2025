@@ -1,0 +1,22 @@
+Vamos a crear una app llamada tareas para gestionar una lista simple de tareas.
+
+La APP debe permitir:
+1.- Crear modelo Tarea (titulo,descripcion,creada_en, completada)
+2.- Crear una página web que muestre la lista de tareas existentes
+3.- Crear una página web para agregar tareas (formulario)
+Bonus:
+4.- Crear una página o un botón o link para marcar tarea como completada.
+5.- Eliminar tarea.
+BONUS 2:
+6.- Usar el admin de django (registrar el modelo para verlo en el admin)
+
+PASO A PASO:
+a.- crear al app teras 
+b.- registrar la app en el proyecto
+c.- enlazar la urls de la app a la url del proyecto
+d.- crear el modelo
+e.- realizar las migraciones
+f.- crear el formulario asociado al modelo
+g.- crear las vistas: listar, crear, completar
+h.- crear las rutas (el urls.py de la app)
+i.- crear los templates
