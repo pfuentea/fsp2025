@@ -11,7 +11,7 @@ BONUS 2:
 6.- Usar el admin de django (registrar el modelo para verlo en el admin)
 
 PASO A PASO:
-a.- crear al app teras 
+a.- crear al app tareas 
 b.- registrar la app en el proyecto
 c.- enlazar la urls de la app a la url del proyecto
 d.- crear el modelo
