@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de autores
+{% endblock %}
+
+{% block contenido %}
+ <h1>LISTADO DE AUTORES</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Nacionalidad</th>
+        </thead>
+        <tbody>
+            {% for autor in autores %}
+            <tr>
+                <td>{{autor.id}}</td>
+                <td>
+                    <a href="{% url 'autor_detail' autor.id %}">{{autor.nombre}}</a>
+                    
+                </td>
+                <td>{{autor.nacionalidad}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
