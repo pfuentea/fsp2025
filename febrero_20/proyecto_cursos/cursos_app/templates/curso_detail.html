@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGC - Detalle del curso
+{% endblock %}
+
+{% block titulo %}
+    <h1>SISTEMA DE GESTION DE CURSOS</h1>
+    <h3>Detalle del curso {{curso}}</h3>
+{% endblock %}
+
+{% block contenido %}
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Email</th>
+        </thead>
+        <tbody>
+            {% for estudiante in estudiantes %}
+            <tr>
+                <td>{{estudiante.nombre}}</td>
+                <td>{{estudiante.email}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

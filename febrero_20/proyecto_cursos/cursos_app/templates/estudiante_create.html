@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGC - Creación de estudiantes
+{% endblock %}
+
+{% block titulo %}
+    <h1>SISTEMA DE GESTION DE CURSOS</h1>
+    <h3>Creacion de Estudiante</h3>
+{% endblock %}
+
+{% block contenido %}
+     <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Crear</button>
+
+    </form>
+
+
+{% endblock %}

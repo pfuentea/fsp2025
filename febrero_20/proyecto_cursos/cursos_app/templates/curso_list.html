@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGC - Listado de cursos
+{% endblock %}
+
+{% block titulo %}
+    <h1>SISTEMA DE GESTION DE CURSOS</h1>
+{% endblock %}
+
+{% block contenido %}
+
+    <table  class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Código</th>
+        </thead>
+        <tbody>
+            {% for curso in cursos %}
+            <tr>
+                <td>
+                    <a href="{% url 'curso_detail' curso.id%}">
+                        {{curso.nombre}}
+                    </a>
+                    
+                </td>
+                <td>{{curso.codigo}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+
+{% endblock %}
