@@ -10,12 +10,15 @@
 {% endblock %}
 
 {% block contenido %}
-     <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <button type="submit">Crear</button>
-
-    </form>
-
-
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <button type="submit">{{button_label}}</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

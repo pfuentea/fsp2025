@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block contenido %}
+<a href="{% url 'curso_edit' curso.id %}">Editar</a>
+
+<h3>Alumnos del curso {{curso}}</h3>
     <table class="table table-striped">
         <thead>
             <th>Nombre</th>
@@ -18,7 +21,9 @@
         <tbody>
             {% for estudiante in estudiantes %}
             <tr>
-                <td>{{estudiante.nombre}}</td>
+                <td>
+                    <a href="{% url 'estudiante_detail' estudiante.id%}">{{estudiante.nombre}}</a>
+                </td>
                 <td>{{estudiante.email}}</td>
             </tr>
             {% endfor %}

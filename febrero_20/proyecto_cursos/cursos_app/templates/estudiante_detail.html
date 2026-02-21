@@ -1,20 +1,24 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    SGC - Listado de cursos
+    SGC - Detalle del estudiante
 {% endblock %}
 
 {% block titulo %}
     <h1>SISTEMA DE GESTION DE CURSOS</h1>
+    <h3>Detalle del estudiante {{estudiante}}</h3>
 {% endblock %}
 
 {% block contenido %}
 
-    <table  class="table table-striped">
+<h3>Correo del estudiante: {{estudiante.email}}</h3>
+<a href="{% url 'estudiante_edit' estudiante.id %}">Editar</a>
+
+<h3>CURSOS</h3>
+    <table class="table table-striped">
         <thead>
             <th>Nombre</th>
             <th>Código</th>
-            <th>Acciones</th>
         </thead>
         <tbody>
             {% for curso in cursos %}
@@ -23,17 +27,12 @@
                     <a href="{% url 'curso_detail' curso.id%}">
                         {{curso.nombre}}
                     </a>
-                    
                 </td>
                 <td>{{curso.codigo}}</td>
-                <td>
-                    <a href="{% url 'curso_edit' curso.id %}">Editar</a>
-                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    
 
 
 {% endblock %}

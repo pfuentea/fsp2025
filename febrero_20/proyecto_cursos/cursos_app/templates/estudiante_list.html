@@ -13,12 +13,19 @@
         <thead>
             <th>Nombre</th>
             <th>Email</th>
+            <th>Acciones</th>
         </thead>
         <tbody>
             {% for estudiante in estudiantes %}
             <tr>
-                <td>{{estudiante.nombre}}</td>
+                <td>
+                    <a href="{% url 'estudiante_detail' estudiante.id%}">{{estudiante.nombre}}</a>
+                    
+                </td>
                 <td>{{estudiante.email}}</td>
+                <td>
+                    <a href="{% url 'estudiante_edit' estudiante.id %}">Editar</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
