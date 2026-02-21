@@ -1,0 +1,17 @@
+RECETAS E INGREDIENTES
+
+Vamos a crear un proyecto y una app "cocina" para registrar
+recetas y sus ingredientes.
+
+Modelos:
+    Ingrediente:
+        nombre: string, único y obligatorio
+        unidad: string
+
+    Receta:
+        nombre: string
+        descripcion: text
+        tiempo_minutos: int
+        ingredientes (ManyToManyField con ingredientes)
+
+        
