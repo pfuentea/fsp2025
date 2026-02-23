@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA - Creacion de autores
+{% endblock %}
+
+{% block titulo %}
+    <h1>SISTEMA DE GESTION DE AUTORES</h1>
+{% endblock %}
+
+{% block contenido %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <h3>Libros</h3>
+        {{ formset.management_form }}
+            {% for form in formset %}
+                {{form.as_p}}
+            {% endfor %}
+
+        <button type="submit">Guardar</button>
+    </form>
+
+
+{% endblock %}

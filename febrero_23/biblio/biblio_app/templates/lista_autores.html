@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA - Creacion de autores
+{% endblock %}
+
+{% block titulo %}
+    <h1>SISTEMA DE GESTION DE AUTORES</h1>
+{% endblock %}
+
+{% block contenido %}
+{% for autor in autores %}
+    <h3>{{autor.nombre}}</h3>
+        <ul>
+        {% for libro in autor.libros.all %}
+            <li>{{libro.titulo}}</li>
+            {% endfor %}
+
+        </ul>
+    
+{% endfor %}
+
+
+{% endblock %}
