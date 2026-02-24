@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import AutorForm,LibroFormSet
+from django.contrib import messages
+from .forms import AutorForm,LibroFormSet, RegistroModelForm
 from .models import Autor
 # Create your views here.
 
@@ -37,3 +38,24 @@ def lista_autores(request):
             'autores':autores,
         }
     return render(request,'lista_autores.html',context=context)
+
+def registro_view(request):
+    if request.method=='POST':
+        form=RegistroModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Usuario registrado exitosamente!")
+
+    
+            return redirect('registro')
+        else:
+            messages.error(request,"error en los datos del formulario!")
+
+    else:
+        form=RegistroModelForm()
+        
+
+    context={
+        'form':form,
+    }
+    return render(request,'registro.html',context=context)

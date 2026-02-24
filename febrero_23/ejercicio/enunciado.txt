@@ -1,0 +1,15 @@
+Crear una aplicacion (o usar una ya creada) llamada TAREAS
+
+El formulario debe tener los siguientes campos:
+-titulo
+-descripcion
+-prioridad (del 1 al 5)
+-fecha_limite
+
+REGLAS O VALIDACIONES:
+1.- el titulo debe tener al menos 5 caracteres
+2.- No permitir el titulo "TEST"
+3.- La prioridad debe estar entre 1 y 5
+4.- La fecha limite no puede ser menor a hoy
+5.- Si todo esta bien, enviar mensaje de exito
+6.- Si hay errores, mostrarlos
