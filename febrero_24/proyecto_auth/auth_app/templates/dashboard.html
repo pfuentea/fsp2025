@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+
+{% load static %} 
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<h1>DASHBOARD</h1>
+<p class="rojo">Bienvenido {{ request.user.username }}</p>
+
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+
+<img src="{% static 'img/estrella.jfif' %}" alt="">
+
+{% endblock %}

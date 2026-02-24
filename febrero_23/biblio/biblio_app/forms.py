@@ -23,8 +23,6 @@ class RegistroModelForm(forms.ModelForm):
         label="Contraseña"
     )
 
-   
-
     class Meta:
         model=Usuario
         fields=['nombre','email','edad','password']
@@ -48,6 +46,8 @@ class RegistroModelForm(forms.ModelForm):
     def clean_edad(self):
         edad  = self.cleaned_data.get("edad")
 
+        if edad <0:
+            raise forms.ValidationError("La edad debe ser positiva")
         if edad <18:
             raise forms.ValidationError("Debes ser mayor de edad para registrarte")
         

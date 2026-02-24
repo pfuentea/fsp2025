@@ -44,9 +44,7 @@ def registro_view(request):
         form=RegistroModelForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,"Usuario registrado exitosamente!")
-
-    
+            messages.success(request,"Usuario registrado exitosamente!")    
             return redirect('registro')
         else:
             messages.error(request,"error en los datos del formulario!")
@@ -54,7 +52,6 @@ def registro_view(request):
     else:
         form=RegistroModelForm()
         
-
     context={
         'form':form,
     }
