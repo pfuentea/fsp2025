@@ -23,9 +23,17 @@ class RegistroModelForm(forms.ModelForm):
         label="Contraseña"
     )
 
+   
+
     class Meta:
         model=Usuario
         fields=['nombre','email','edad','password']
+        widgets={
+        "nombre":forms.TextInput(attrs={"class":"form-control"}),
+        "email":forms.EmailInput(attrs={"class":"form-control"}),
+        "edad":forms.NumberInput(attrs={"class":"form-control"}),
+        "password":forms.PasswordInput(attrs={"class":"form-control"}),
+    }
 
     def clean_nombre(self):
         nombre = self.cleaned_data.get("nombre","").strip()
