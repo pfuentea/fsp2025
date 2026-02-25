@@ -1,0 +1,12 @@
+1.- instalar gTTS
+pip install gTTS
+
+2.- ejecutar el script de creación del mensaje
+python intro_gen.py
+
+3.- levantar el sercidor de Django
+cd mensajes
+python manage.py runserver
+
+4.- ir a 127.0.0.1:8000 y presionar boton comenzar
+
