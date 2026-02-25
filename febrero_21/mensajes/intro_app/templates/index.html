@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block titulo %}
+    <h1>INTRO CON SONIDO</h1>
+{% endblock %}
+
+{% block contenido %}
+{% load static %}
+<button id="startBtn">Comenzar</button>    
+
+<audio id="introAudio" preload="auto">
+    <source src="{% static 'audio/intro.mp3' %}" type="audio/mpeg">
+</audio>
+
+<script>
+    const btn=document.getElementById('startBtn');
+    const audio =document.getElementById('introAudio');
+
+    btn.addEventListener("click",async()=>{
+        try{
+            await audio.play();
+        } catch (e){
+            console.log("El navegador bloqueo la reproduccion",e)
+        }
+    });
+
+</script>
+
+{% endblock %}
