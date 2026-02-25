@@ -1,0 +1,10 @@
+Vamos a ir un paso más adelante en nuestra app de TAREAS.
+
+El sistema deberá:
+-Permitir que el usuario pueda hacer login.
+-Permitir que el usuario pueda hacer logout.
+-Redirigir a una landing page en caso de salir.
+-Si intenta ver las tareas, redirigir al login.
+-Mostrar el nombre del usuario en la web principal de las tareas.
+-Agregar algunas imagenes a la web, ya sea en el sitio personal o en la landing page.
+
