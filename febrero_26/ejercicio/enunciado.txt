@@ -1,0 +1,10 @@
+Vamos a crear un formulario en el que podamos realizar distintos tipos de filtro con ORM
+ejemplos:
+- filtrar por autor
+- filtrar por año
+- filtrar por nacionalidad de autor
+- filtrar por autores DISTINTOS A 
+
+
+BONUS: Hacer un filtro por más de una condición ( AND o un OR)
+
