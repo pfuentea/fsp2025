@@ -1,0 +1,9 @@
+Objetivo:
+- ver (listar-detalle), crear,editar,eliminar tareas con vistas genericas
+-ListView
+-DetailView
+-CreateView
+-UpdateView
+-DeleteView
+
+bonus: hacer lo mismo pero solo las tareas propias
