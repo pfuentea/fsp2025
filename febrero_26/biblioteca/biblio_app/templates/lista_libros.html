@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Libros{% endblock %}
 
-{% block content %}
+{% block contenido %}
+
+<div class="formulario">
+  FORMULARIO
+</div>
+
 <h2 class="mb-3">Listado de libros</h2>
 
 <table class="table table-striped table-hover align-middle">
@@ -26,6 +31,88 @@
         <td colspan="4" class="text-center">No hay libros registrados.</td>
       </tr>
     {% endfor %}
+
   </tbody>
 </table>
+
+<h2 class="mb-3">Listado de libros por autor: {{ autor }} </h2>
+<table class="table table-striped table-hover align-middle">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Año</th>
+      <th>Autor</th>
+      <th>Nacionalidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for libro in libros_por_autor %}
+      <tr>
+        <td>{{ libro.titulo }}</td>
+        <td>{{ libro.anio }}</td>
+        <td>{{ libro.autor.nombre }}</td>
+        <td>{{ libro.autor.nacionalidad|default:"-" }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="4" class="text-center">No hay libros registrados.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2 class="mb-3">Listado de libros con la palabra "POEMA" </h2>
+<table class="table table-striped table-hover align-middle">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Año</th>
+      <th>Autor</th>
+      <th>Nacionalidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for libro in titulos_con_poema %}
+      <tr>
+        <td>{{ libro.titulo }}</td>
+        <td>{{ libro.anio }}</td>
+        <td>{{ libro.autor.nombre }}</td>
+        <td>{{ libro.autor.nacionalidad|default:"-" }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="4" class="text-center">No hay libros registrados.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+<h2 class="mb-3">Listado de libros año mayor a 1950 </h2>
+<table class="table table-striped table-hover align-middle">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Año</th>
+      <th>Autor</th>
+      <th>Nacionalidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for libro in libros_mayor_1950 %}
+      <tr>
+        <td>{{ libro.titulo }}</td>
+        <td>{{ libro.anio }}</td>
+        <td>{{ libro.autor.nombre }}</td>
+        <td>{{ libro.autor.nacionalidad|default:"-" }}</td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="4" class="text-center">No hay libros registrados.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 {% endblock %}

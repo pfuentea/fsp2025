@@ -8,8 +8,21 @@ def index(request):
     return render(request,'index.html')
 
 def lista_libros(request):
-    libros = Libro.objects.all().order_by("titulo")
-    return render(request, "lista_libros.html", {"libros": libros})
+    libros = Libro.objects.all().order_by("-titulo")
+    libros_por_autor = Libro.objects.filter(autor__nombre='Pablo Neruda')
+    autor ='Pablo Neruda'
+    titulos_con_poema = Libro.objects.filter(titulo__icontains='poema') # LIKE '%poema%'
+    libros_mayor_1950 = Libro.objects.filter(anio__gt=1950 ) # gt = greater than 
+
+
+    context={
+        "libros": libros,
+        "libros_por_autor":libros_por_autor,
+        'autor':autor,
+        'titulos_con_poema':titulos_con_poema,
+        'libros_mayor_1950':libros_mayor_1950,
+             }
+    return render(request, "lista_libros.html",context=context )
 
 def crear_autor(request):
     if request.method == "POST":

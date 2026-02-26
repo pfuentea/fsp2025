@@ -1,0 +1,32 @@
+ORM DJANGO:
+Django va a generar los SQL para trabajar con los datos
+ORM ----------- SQL
+
+.all()  -------> SELECT * from 
+.get(id)  ------> SELECT * from .... WHERE ID=id ....obtengo solo 1 registro
+.create( ...)  -----> INSERT INTO ...
+.save() -----> UPDATE tabla SET...
+.delete() -----> DELETE FROM tabla
+
+ORM: Object Relational Mapping
+
+CLASES <=> TABLAS 
+atributos <=> Columnas
+relaciones <=> llaves foraneas , tablas intermedias + llaves foraneas 
+instacia de la clase <=> registro de la tabla
+
+VAMOS A TENER OTROS MÉTODOS PARA CONSULTAR:
+
+ORDENAMIENTO:
+.order_by("titulo") para ordenar por el campo titulo los resultados
+.order_by("-titulo") para ordenar descendente se le pone el signo menos antes del nombre del campo. 
+.filter(autor__nombre='Pablo Neruda') filtramos por el nombre del autor
+.filter(titulo__contains='poema') #  es lo analogo de WHERE titulo LIKE '%poema% (case sensitive)
+.filter(titulo__icontains='poema') #  es lo analogo de WHERE titulo LIKE '%poema%
+.filter(anio__gt=1950 ) # gt = greater than , MAYOR QUE
+.filter(anio__lt=1950 ) # lt = lower than , MENOR QUE
+.filter(anio__ge=1950 ) # ge = greater equal , MAYOR O IGUAL QUE
+.filter(anio__le=1950 ) # le = lower equal , MENOR O IGUAL QUE
+.filter(anio__range=(1920,1950) ) # le = lower equal , MENOR O IGUAL QUE
+
+
