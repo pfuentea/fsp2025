@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="p-4 bg-light rounded">
+  <h1 class="mb-2">Demo ORM: Libros y Autores</h1>
+  <p class="mb-0">Ir a la lista de libros para ver datos cargados con ORM.</p>
+  <a class="btn btn-primary mt-3" href="{% url 'lista_libros' %}">Ver libros</a>
+</div>
+{% endblock %}
