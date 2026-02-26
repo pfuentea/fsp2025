@@ -16,8 +16,9 @@
     <div class="container">
         {% block titulo %} {% endblock %}
     
-        {% include 'menu.html'  %}
-        
+        {% if user.is_authenticated %}
+            {% include 'menu.html'  %}
+        {% endif %}
         <main>
             
             {% block contenido %}{% endblock %}

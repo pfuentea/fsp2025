@@ -116,3 +116,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+LOGIN_REDIRECT_URL='libro_list' #es la ruta al estar autenticados
+LOGOUT_REDIRECT_URL='/login/' #la ruta al hacer logout
+LOGIN_URL='/login/' # ruta al no estar autenticado
+

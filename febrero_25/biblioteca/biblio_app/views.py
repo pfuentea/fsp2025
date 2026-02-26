@@ -17,6 +17,9 @@ class LibroListView(ListView):
     template_name = 'libros/list.html'
     context_object_name ='libros'
 
+    def get_queryset(self):
+        return Libro.objects.filter(creador=self.request.user)
+
 class LibroDetailView(DetailView):
     model= Libro
     template_name = 'libros/detail.html'
@@ -37,7 +40,7 @@ class MiLoginView(LoginView):
     template_name='auth/login.html'
 
 class MiLogoutView(LogoutView):
-    next_page=reverse_lazy('libro_list')
+    next_page=reverse_lazy('login')
 
 def signup_view(request):
     if request.method == 'POST':
@@ -60,6 +63,7 @@ class AutorListView(ListView):
     model= Autor
     template_name = 'autor/list.html'
     context_object_name ='autores'
+
 
 class AutorDetailView(DetailView):
     model= Autor
