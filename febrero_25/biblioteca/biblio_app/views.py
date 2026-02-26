@@ -36,6 +36,14 @@ class LibroCreateView(CreateView):
         messages.success(self.request,"libro creado exitosamente")
         return super().form_valid(form)
     
+
+class LibroUpdateView(UpdateView):
+    model=Libro
+    form_class=LibroForm #uso el mismo form que para la creación
+    template_name='libros/form.html'
+    success_url=reverse_lazy('libro_list')
+
+    
 class MiLoginView(LoginView):
     template_name='auth/login.html'
 
@@ -78,3 +86,9 @@ class AutorCreateView(CreateView):
     def form_valid(self,form):
         messages.success(self.request,"autor creado exitosamente")
         return super().form_valid(form)
+    
+class AutorUpdateView(UpdateView):
+    model=Autor
+    form_class=AutorForm #uso el mismo form que para la creación
+    template_name='autor/form.html'
+    success_url=reverse_lazy('autor_list')

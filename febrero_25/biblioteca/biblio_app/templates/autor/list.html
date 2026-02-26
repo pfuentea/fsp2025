@@ -13,11 +13,11 @@
     <h2> LISTADO DE Autores</h2>    
     <ol>{% for autor in autores  %}
         <li>
-             {{autor.nombre}}
+             {{autor.nombre}} ( <a href="{% url 'autor_update' autor.id %}">Edit</a> )
             <ul>
                 {% for l in autor.libros.all %}
                 <li>
-                    {{l.titulo}}
+                    {{l.titulo}} 
                 </li>
                 {% endfor %}
             </ul>

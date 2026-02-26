@@ -19,7 +19,7 @@
             <ul>
                 {% for autor in libro.autores.all %}
                 <li>
-                    {{autor.nombre}}
+                    {{autor.nombre}} ( <a href="{% url 'libro_update' libro.id %}">Edit</a> )
                 </li>
                 {% endfor %}
             </ul>
