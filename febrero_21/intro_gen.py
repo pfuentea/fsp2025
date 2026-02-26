@@ -7,3 +7,4 @@ tts=gTTS(texto,lang="es")
 out=Path("./mensajes/intro_app/static/audio/intro.mp3")
 out.parent.mkdir(parents=True, exist_ok=True)
 tts.save(str(out))
+

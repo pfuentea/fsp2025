@@ -1,0 +1,11 @@
+DRY: Don´t Repeat Yourself (no te repitas)
+FBV: Function Base View
+CBV: Class Base View
+
+- Existen vistas predefinidas:
+--ListView
+--CreateView
+--UpdateView
+--DeleteView
+--DetailView
+

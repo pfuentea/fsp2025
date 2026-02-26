@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA
+{% endblock %}
+
+{% block titulo %}
+    <h1>SISTEMA DE GESTION DE AUTORES con VISTAS</h1>
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <h2> LISTADO DE LIBROS</h2>    
+    {% for libro in libros %}
+    {{libro.titulo}}
+        {% for autor in libro.autores.all %}
+            {{autor.nombre}}
+        {% endfor %}
+
+    {% endfor %}
+
+
+</div>
+
+
+
+{% endblock %}

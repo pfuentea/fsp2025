@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA
+{% endblock %}
+
+{% block titulo %}
+    <h1>SISTEMA DE GESTION DE AUTORES con VISTAS</h1>
+{% endblock %}
+
+{% block contenido %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Crear</button>
+        </form>
+
+    </div>
+
+
+{% endblock %}
