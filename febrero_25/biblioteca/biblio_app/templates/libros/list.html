@@ -10,14 +10,23 @@
 
 {% block contenido %}
 <div class="container">
-    <h2> LISTADO DE LIBROS</h2>    
-    {% for libro in libros %}
-    {{libro.titulo}}
-        {% for autor in libro.autores.all %}
-            {{autor.nombre}}
-        {% endfor %}
+    <h2> LISTADO DE LIBROS</h2>  
+    <ul>
+        {% for libro in libros %}
+        
+        <li>
+            {{libro.titulo}}
+            <ul>
+                {% for autor in libro.autores.all %}
+                <li>
+                    {{autor.nombre}}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
 
-    {% endfor %}
+        </li>
+    </ul>
 
 
 </div>
