@@ -64,12 +64,12 @@ def filtros_custom(qs_base,form_filtros):
         qs_base=qs_base.filter(titulo__icontains=titulo)
     
     if autor_id:
-        qs = qs.filter(autor_id=autor_id)
+        qs_base = qs_base.filter(autor_id=autor_id)
     if anio_min.isdigit():
-        qs = qs.filter(anio__gte=int(anio_min))
+        qs_base = qs_base.filter(anio__gte=int(anio_min))
     if anio_max.isdigit():
-        qs = qs.filter(anio__lte=int(anio_max))
+        qs_base = qs_base.filter(anio__lte=int(anio_max))
     if nacionalidad:
-        qs = qs.filter(autor__nacionalidad__icontains=nacionalidad)
+        qs_base = qs_base.filter(autor__nacionalidad__icontains=nacionalidad)
 
     return qs_base
