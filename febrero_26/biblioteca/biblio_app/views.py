@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import AutorForm, LibroForm
-from .models import Libro
+from .models import Libro,Autor
 
 # Create your views here.
 def index(request):
@@ -14,6 +14,8 @@ def lista_libros(request):
     titulos_con_poema = Libro.objects.filter(titulo__icontains='poema') # LIKE '%poema%'
     libros_mayor_1950 = Libro.objects.filter(anio__gt=1950 ) # gt = greater than 
 
+    libros_filtrados=filtros_custom(libros,request.GET)
+    autores=Autor.objects.all()
 
     context={
         "libros": libros,
@@ -21,6 +23,8 @@ def lista_libros(request):
         'autor':autor,
         'titulos_con_poema':titulos_con_poema,
         'libros_mayor_1950':libros_mayor_1950,
+        'libros_filtrados':libros_filtrados,
+        'autores':autores,
              }
     return render(request, "lista_libros.html",context=context )
 
@@ -47,3 +51,25 @@ def crear_libro(request):
         form = LibroForm()
 
     return render(request, "crear_libro.html", {"form": form})
+
+def filtros_custom(qs_base,form_filtros):
+    titulo=form_filtros.get("titulo","").strip()
+    autor=form_filtros.get("autor","").strip()
+    autor_id = form_filtros.get("autor", "").strip()
+    anio_min = form_filtros.get("anio_min", "").strip()
+    anio_max = form_filtros.get("anio_max", "").strip()
+    nacionalidad = form_filtros.get("nacionalidad", "").strip()
+
+    if titulo:
+        qs_base=qs_base.filter(titulo__icontains=titulo)
+    
+    if autor_id:
+        qs = qs.filter(autor_id=autor_id)
+    if anio_min.isdigit():
+        qs = qs.filter(anio__gte=int(anio_min))
+    if anio_max.isdigit():
+        qs = qs.filter(anio__lte=int(anio_max))
+    if nacionalidad:
+        qs = qs.filter(autor__nacionalidad__icontains=nacionalidad)
+
+    return qs_base
