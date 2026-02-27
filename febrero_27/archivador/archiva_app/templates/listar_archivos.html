@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA
+{% endblock %}
+
+{% block titulo %}
+    <h1>SISTEMA DE GESTION DE ARCHIVOS</h1>
+{% endblock %}
+
+{% block contenido %}
+{% load static %}
+<table>
+    <thead>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            imagen
+        </th>
+    </thead>
+    <tbody>
+        {% for a in archivos %}
+        <tr>
+            <td>{{a.nombre}}</td>
+            <td>{{a.created_at}}</td>
+            <td>
+                <img src="{{ruta}}/{{a.ruta}}" alt="">
+               
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

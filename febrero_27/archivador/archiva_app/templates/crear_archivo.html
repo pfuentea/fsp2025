@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA
+{% endblock %}
+
+{% block titulo %}
+    <h1>SISTEMA DE GESTION DE ARCHIVOS</h1>
+{% endblock %}
+
+{% block contenido %}
+<h2>Carga de Archivos</h2>
+
+<form method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit">Cargar</button>
+</form>
+
+{% endblock %}
