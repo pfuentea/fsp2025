@@ -17,4 +17,7 @@ class ArchivoForm(forms.ModelForm):
         
         nombre=f.name.lower()
         # agregar validacion para no permitir .js .exe. .py script ejecutable 
+        if not nombre.endswith(".jpg"):
+            raise forms.ValidationError(f"Solo se permiten archivos JPG ")
+
         return f

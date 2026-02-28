@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block contenido %}
-{% load static %}
+
 <table>
     <thead>
         <th>
@@ -28,7 +28,7 @@
             <td>{{a.nombre}}</td>
             <td>{{a.created_at}}</td>
             <td>
-                <img src="{{ruta}}/{{a.ruta}}" alt="">
+                <img src="/media/{{a.ruta}}" alt="">
                
             </td>
         </tr>
