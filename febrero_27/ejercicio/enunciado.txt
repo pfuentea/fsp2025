@@ -1,0 +1,8 @@
+Utilizando lo aprendido hoy deberan:
+1.- Cargar imagenes
+2.- Mostrarlas como una galeria
+3.- Poder eliminarlas
+4.- Poder editar el nombre
+
+BONUS:
+5.- Mostrar el peso de la imagen
