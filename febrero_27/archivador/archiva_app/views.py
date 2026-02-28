@@ -35,7 +35,7 @@ def list_archivos(request):
 
     context={
         'archivos':archivos,
-        'ruta':ruta_raiz(),
+        
     }
     return render(request,'listar_archivos.html',context=context)
 
