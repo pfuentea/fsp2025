@@ -1,0 +1,11 @@
+1.- completar lo que falta:
+-rutas
+-vistas
+-templates
+
+2.- ponerle un nombre a su negocio
+3.- crear sandwiches
+4.- probar creando algunas ordenes
+
+BONUS SUPER NINJA:
+modificar modelo para poner imagen del sandwich
