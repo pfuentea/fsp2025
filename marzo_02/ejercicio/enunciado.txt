@@ -1,3 +1,5 @@
+0.- descargar la base del proyecto y trabajar desde ahí.
+
 1.- completar lo que falta:
 -rutas
 -vistas

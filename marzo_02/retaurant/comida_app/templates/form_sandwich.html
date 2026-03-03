@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA
+{% endblock %}
+
+{% block titulo %}
+    <h1>TENEMOS HAMBRE FAST FOOD SPA ILIMITADA</h1>
+{% endblock %}
+
+{% block contenido %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-success">Guardar</button>
+    <a href="{% url 'sandwiches_list' %}" class="btn btn-secondary">Volver</a>
+
+</form>
+
+{% endblock %}

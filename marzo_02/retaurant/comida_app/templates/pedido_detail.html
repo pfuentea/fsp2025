@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA
+{% endblock %}
+
+{% block titulo %}
+    <h1>TENEMOS HAMBRE FAST FOOD SPA ILIMITADA</h1>
+{% endblock %}
+
+{% block contenido %}
+<h2>
+    Pedido # {{pedido.id}}
+</h2>
+<a class="btn btn-success" href="{% url 'pedidos_item_create' pedido.id %}">+ Agregar sandwich</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Sandwiches</th>
+            <th>Extras</th>
+            <th>Unitario</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in pedido.items.all %}
+        <tr>
+            <td>{{item.sandwich.nombre}}</td>
+            <td>Extras</td>
+            <td>{{item.precio_unitario}}</td>
+            <td>{{item.cantidad}}</td>
+            <td>{{item.total_por_fila}}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">Pedido sin items</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p>
+    TOTAL : {{pedido.total}}
+</p>
+{% endblock %}

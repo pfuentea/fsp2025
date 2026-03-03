@@ -11,7 +11,33 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'index' %}">Inicio</a>
         </li>
-      
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ingredientes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'ingredientes_list' %}">Lista</a></li>
+            <li><a class="dropdown-item" href="{% url 'ingredientes_create' %}">Crear</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sandwiches
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'sandwiches_list' %}">Lista</a></li>
+            <li><a class="dropdown-item" href="{% url 'sandwiches_create' %}">Crear</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Pedidos
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'pedidos_list' %}">Lista</a></li>
+            <li><a class="dropdown-item" href="{% url 'pedidos_create' %}">Crear</a></li>
+          </ul>
+        </li>
         
       </ul>
     </div>

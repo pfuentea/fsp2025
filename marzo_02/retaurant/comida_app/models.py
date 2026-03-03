@@ -4,7 +4,7 @@ from django.db import models
 
 '''
 SANDIWICH -> INGREDIENTES
-PEDIDOS -> DETALL_PEDIDO  ==  VARIOS SANDWICH
+PEDIDOS -> DETALLE_PEDIDO  ==  VARIOS SANDWICH
 '''
 
 class Ingrediente(models.Model):
@@ -23,9 +23,9 @@ class Ingrediente(models.Model):
     # extras_en_pedidos
 
     def __str__(self):
-        return f"{self.name}(+{self.precio})"
+        return f"{self.nombre}(+{self.precio})"
     
-class Sandich(models.Model):
+class Sandwich(models.Model):
     nombre=models.CharField(max_length=50, unique=True)
     precio_base=models.DecimalField(max_digits=10,decimal_places=2)
     ingredientes=models.ManyToManyField(Ingrediente,blank=True,related_name="sandwich_de_ingrediente")
@@ -38,12 +38,14 @@ class Pedido(models.Model):
 
     def __str__(self):
         return f"Pedido #{self.id}"
+    def total(self):
+        return sum( item.total_por_fila() for item in self.items.all() )
     
 class DetallePedido(models.Model):
     pedido = models.ForeignKey(Pedido,related_name="items",on_delete=models.CASCADE)
-    sandwich=models.ForeignKey(Sandich,on_delete=models.PROTECT)
+    sandwich=models.ForeignKey(Sandwich,on_delete=models.PROTECT)
     cantidad = models.PositiveIntegerField(default=1)
-    extras = models.ManyToManyField(Ingrediente,related_name="extras_en_pedidos")
+    extras = models.ManyToManyField(Ingrediente,related_name="extras_en_pedidos",blank=True)
     observacion = models.CharField(max_length=255,blank=True)
 
     def precio_unitario(self):
@@ -56,5 +58,5 @@ class DetallePedido(models.Model):
     def __str__(self):
         return f"{self.cantidad} x {self.sandwich.nombre}"
     
-    
+
     

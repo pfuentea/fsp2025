@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA
+{% endblock %}
+
+{% block titulo %}
+    <h1>TENEMOS HAMBRE FAST FOOD</h1>
+{% endblock %}
+
+{% block contenido %}
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 justify-content-center">
+    {% for s in sandwiches %}
+        <div class="card mx-3" style="width: 15rem;">
+            <div class="card-body text-center">
+                <h5 class="card-title text-center">{{s.nombre}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary  text-center">{{s.precio_base}}</h6>
+                <p class="card-text text-center">Ingredientes</p>
+                <ol class="text-start">
+                    {% for i in s.ingredientes.all %}
+                    <li>{{i.nombre}}</li>
+                    {% endfor %}
+                </ol>
+                <a href="{% url 'sandwiches_edit' s.id %}" class="btn btn-secondary">Editar</a>
+                <a href="#" class="btn btn-danger">Eliminar</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+ 
+</div>
+   
+
+{% endblock %}

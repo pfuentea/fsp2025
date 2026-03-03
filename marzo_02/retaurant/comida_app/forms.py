@@ -1,5 +1,5 @@
 from django import forms
-from .models import Ingrediente,Sandich,DetallePedido
+from .models import Ingrediente,Sandwich,DetallePedido
 
 class IngredienteForm(forms.ModelForm):
     class Meta:
@@ -9,7 +9,7 @@ class IngredienteForm(forms.ModelForm):
 
 class SandwichForm(forms.ModelForm):
     class Meta:
-        model= Sandich
+        model= Sandwich
         fields=['nombre','precio_base','ingredientes']
 
 class DetallePedidoForm(forms.ModelForm):

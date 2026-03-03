@@ -7,12 +7,33 @@ urlpatterns = [
     # CRUD (Ingredientes)
     path('ingredientes/', views.IngredientesListView.as_view(),name='ingredientes_list'), 
     path('ingredientes/nuevo', views.IngredientesCreateView.as_view(),name='ingredientes_create'),
+    path('ingredientes/<int:pk>/editar', views.IngredientesUpdateView.as_view(),name='ingredientes_edit'),
+
+
     # falta edita, detalle, borrar
-'''
-    # CRUD Sandwich + ingredientes
     path('sandwiches/', views.SandwichesListView.as_view(),name='sandwiches_list'),
     path('sandwiches/nuevo', views.SandwichesCreateView.as_view(),name='sandwiches_create'),
-# falta edita, detalle, borrar
+    path('sandwiches/<int:pk>/editar', views.SandwichesUpdateView.as_view(),name='sandwiches_edit'),
+    
+    #pedidos
+    path('pedidos/', views.PedidosListView.as_view(),name='pedidos_list'),
+    path('pedidos/nuevo', views.PedidosCreateView.as_view(),name='pedidos_create'),
+    path('pedidos/<int:pedido_id>', views.PedidosDetailView.as_view(),name='pedidos_detail'),
+
+    #detalle del pedido
+    path('pedidos/<int:pedido_id>/items/nuevo', views.PedidosItemCreateView.as_view(), name='pedidos_item_create'),
+    
+ 
+
+]
+
+
+
+'''
+    # CRUD Sandwich + ingredientes
+    
+    path('sandwiches/nuevo', views.SandwichesCreateView.as_view(),name='sandwiches_create'),
+    # falta edita, detalle, borrar
 
     #Pedidos
     path('pedidos/nuevo', views.PedidosCreateView.as_view(),name='pedido_create'),
@@ -24,5 +45,3 @@ urlpatterns = [
     # falta edita, detalle, borrar
 
 '''
-
-]
