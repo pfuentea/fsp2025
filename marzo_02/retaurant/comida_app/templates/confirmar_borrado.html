@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    SGA
+{% endblock %}
+
+{% block titulo %}
+    <h1>TENEMOS HAMBRE FAST FOOD SPA ILIMITADA</h1>
+{% endblock %}
+
+{% block contenido %}
+<form method="POST">
+    {% csrf_token %}
+    <h2>Desea eliminar este registro?</h2>
+    <h4>Se eliminará : {{object}} </h4>
+    <div class="gap-2 d-flex">
+        <button class="btn btn-danger">Si, eliminar!</button>
+        <a href="javascript:history.back()" class="btn btn-secondary">Cancelar</a>
+    </div>
+
+</form>
+{% endblock %}

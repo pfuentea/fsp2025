@@ -12,9 +12,11 @@
 <h2>
     Pedido # {{pedido.id}}
 </h2>
+<a href="{% url 'pedidos_list' %}" class="btn btn-primary">Volver</a>
+    
 <a class="btn btn-success" href="{% url 'pedidos_item_create' pedido.id %}">+ Agregar sandwich</a>
 
-<table>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Sandwiches</th>
@@ -22,16 +24,27 @@
             <th>Unitario</th>
             <th>Cantidad</th>
             <th>Total</th>
+            <th>Operaciones</th>
         </tr>
     </thead>
     <tbody>
         {% for item in pedido.items.all %}
         <tr>
             <td>{{item.sandwich.nombre}}</td>
-            <td>Extras</td>
+            <td>
+                {% for ext in item.extras.all %}
+                    {{ext.nombre}} (+ {{ext.precio}})
+                {% empty %}
+                    Sin Extras
+                {% endfor %}
+            </td>
             <td>{{item.precio_unitario}}</td>
             <td>{{item.cantidad}}</td>
             <td>{{item.total_por_fila}}</td>
+            <td>
+                <a href="{% url 'pedido_item_update' pedido.id item.id %}" class="btn btn-primary">Editar</a>
+                <a href="{% url 'pedido_item_delete' pedido.id item.id %}" class="btn btn-danger">Eliminar</a>
+            </td>
         </tr>
         {% empty %}
         <tr>

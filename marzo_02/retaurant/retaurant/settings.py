@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,6 +80,8 @@ DATABASES = {
     }
 }
 '''
+
+# .env nombre archivo variables de ambiente
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',

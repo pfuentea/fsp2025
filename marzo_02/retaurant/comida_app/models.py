@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 # Create your models here.
 
 '''
@@ -35,6 +35,7 @@ class Sandwich(models.Model):
 
 class Pedido(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Pedido #{self.id}"
@@ -57,6 +58,11 @@ class DetallePedido(models.Model):
     
     def __str__(self):
         return f"{self.cantidad} x {self.sandwich.nombre}"
+    
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        self.pedido.updated_at= timezone.now()
+        self.pedido.save()
     
 
     

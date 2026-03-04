@@ -10,23 +10,30 @@
 
 {% block contenido %}
 <div class="container mt-4">
-    <table>
+    <table  class="table table-striped">
         <thead>
             <th>Número de pedido</th>
-            <th>Fecha</th>
+            <th class="text-center">Cantidad de Sandwiches</th>
+            <th class="text-center">Fecha Creación</th>
+            <th class="text-center">Fecha Modificación</th>
+            <th class="text-center">Operaciones</th>
         </thead>
         <tbody>
             {% for p in pedidos %}
             <tr>
-                <td>{{p.id}}</td>
-                <td>{{p.created_at}}</td>
+                <td>{{p}}</td>
+                <td class="text-center">{{p.items.count}}</td>
+                <td class="text-center">{{p.created_at}}</td>
+                <td class="text-center">{{p.updated_at}}</td>
+                <td class="text-center">
+                    <a href="{% url 'pedidos_detail' p.id %}">Ver Detalles</a>
+                </td>
             </tr>
             {% endfor %}
 
         </tbody>
 
     </table>
-
     
 </div>
    
