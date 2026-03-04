@@ -9,9 +9,8 @@ urlpatterns = [
     path('ingredientes/nuevo/', views.IngredientesCreateView.as_view(),name='ingredientes_create'),
     path('ingredientes/<int:pk>/editar/', views.IngredientesUpdateView.as_view(),name='ingredientes_edit'),
     path('ingredientes/<int:pk>/eliminar/', views.IngredientesDeleteView.as_view(), name='ingredientes_delete'),
-    
 
-    # falta edita, detalle, borrar
+    # sandwiches
     path('sandwiches/', views.SandwichesListView.as_view(),name='sandwiches_list'),
     path('sandwiches/nuevo/', views.SandwichesCreateView.as_view(),name='sandwiches_create'),
     path('sandwiches/<int:pk>/editar/', views.SandwichesUpdateView.as_view(),name='sandwiches_edit'),
