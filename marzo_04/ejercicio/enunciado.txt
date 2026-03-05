@@ -1,0 +1,18 @@
+Vamos a construir una aplicacion llamada MiniWiki o MyWiki
+donde los usuarios puedan crear,buscar,editar, filtrar 
+y organizar articulos
+
+Requerimientos:
+1- Setup del proyecto
+2.- Creacion de modelos
+
+-- USAR MODELO USER
+
+-- ARTICULO 
+(titulo: str,
+contenido:text,
+creado_en: datetime,
+modificado_en: datetime,
+autor: USER,
+publicado : boolean ) 
+
