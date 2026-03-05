@@ -1,0 +1,68 @@
+paso 0: Preparción y configuración del proyecto.
+0.0: Crear y activar el entorno vitual 
+python venv -m NOMBRE_ENTORNO
+source NOMBRE_ENTORNO/Scripts/activate
+
+0.1: Crear proyecto y la APP
+django-admin startproject NOMBRE_PROYECTO
+cd NOMBRE_PROYECTO
+python manage.py startapp NOMBRE_APP
+
+0.2: Registrar la APP en el proyecto y setear valores para BD (en el settings.py)
+0.3: En el caso de usar variables de entorno se deben configurar BD (.env)
+0.4: Crear estructuras de directorio en la APP (templates, static)
+0.5: Crear archivos nuevos (urls.py de la app, forms.py, los templates base)
+0.6: Crear los archivos estáticos como css,js
+0.7: Crear Base de datos de la APP (en el postgres directamente)
+
+paso 1: Creación modelos (models.py)
+Revisando el diagrama entidad-relacion (entidades, atributos y relaciones) generamos 
+el modelo en el archivo models.py. En el ejemplo de la app de comida:
+-Crear modelo Ingredientes (atributos desde el diagrama E-R)
+-Crear modelo Sandwich (atributos desde el diagrama E-R)
+-Crear modelo de Pedido (atributos desde el diagrama E-R)
+-Crear modelo del Detalle del Pedido (atributos desde el diagrama E-R)
+-Crear y ejecutar las migraciones:
+python manage.py makemigrations
+python manage.py migrate
+
+paso 2: Creación de rutas (en urls.py de la APP)
+- ruta de index
+- rutas de login, register, logout
+- En el caso del CRUD se crean al menos 5 rutas:
+-- TODOS (LISTADO) 
+-- Creación (create)
+-- Detalle (detail)
+-- Modificación (update)
+-- Eliminacion (delete)
+
+paso 3: Creacion de formularios (en forms.py )
+- Formulario de creacion y modificación de las clases. Muchas veces el mismo 
+formulario sirve para crear y modificar, así que basta con 1 por clase.
+
+paso 4: Creación de vistas (en views.py):
+- Cada ruta va a una vista especifica. En el caso de un crud podemos usar las vistas
+genericas.
+-- TODOS (LISTADO) 
+-- Creación (create)
+-- Detalle (detail)
+-- Modificación (update)
+-- Eliminacion (delete)
+
+paso 5: Creacion de templates: (en el directorio templates )
+- para cada vista debemos tener un template
+-- TODOS (LISTADO) 
+-- Creación (create)
+-- Detalle (detail)
+-- Modificación (update)
+-- Eliminacion (delete)
+
+paso 6: Probar la APP
+python manage.py runserver
+abrimos el navegador en http://127.0.0.1:8000/
+
+
+
+
+
+
