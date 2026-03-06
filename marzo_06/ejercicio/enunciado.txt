@@ -1,0 +1,24 @@
+Mini REDDIT : Foro tipo árbol
+Tenemos una pregunta u opinión y el resto de los usuarios registrados
+pueden responder esa pregunta u opinión, y los demás pueden 
+responder esta última respuesta o la primera.
+Objetivo:
+- Un usuario puede crear un post PRINCIPAL
+- Otros usuarios pueden responder este POST 
+- Se pueden responder las respuestas
+- Deben mostrarse como un árbol
+
+MODELOS:
+módelo POST:
+-Autor
+-titulo
+-contenido
+-fecha_creacion
+
+RESPUESTA:
+-Autor
+-contenido
+-padre (post al que se responde)
+-fecha_creacion
+
+
