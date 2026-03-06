@@ -1,0 +1,33 @@
+DJANGO REST FRAMEWORK (DRF)
+
+Nos provee de: Serializadores, Routers, ViewSet, Web para probar la aplicación, Sistema de Autenticación., Filtros,Validadores, etc.
+
+URL:
+www.django-rest-framework.org
+
+Instalación:
+pip install djangorestframework
+pip install markdown       # Markdown support for the browsable API.
+pip install django-filter  # Filtering support
+
+Vocabulario:
+Serializers: Serializar= transformar un objeto de Python en un JSON.
+            Deserializar= Transformar un JSON a un objeto de Python.
+
+ViewSet: Set de vistas para un CRUD completo
+Routers: constructores de rutas para un ViewSet
+
+API: Application Programming Interface, es una interfaz entre aplicaciones
+que no necesariamente tienen el mismo lenguaje, entonces se crea un lenguaje intermedio (JSON,XML,etc)
+para que se comuniquen y/o envíen información.
+
+Métodos HTTP que usan las API:
+GET-> Leer
+POST-> Crear
+PUT-> Modificar
+DELETE-> Eliminar
+
+JSON: Formato para datos basado en un diccionario
+{"id":1, "nombre":"Tolkien"}
+{"id":1,"titulo":"El Hobbit","autor":1}
+
