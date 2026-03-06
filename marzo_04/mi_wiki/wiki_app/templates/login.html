@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mini Wiki - Login
+{% endblock %}
+
+{% block titulo %}
+    <h1>MI WIKI</h1>
+{% endblock %}
+
+{% block contenido %}
+<h3>Ingresar</h3>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-primary">Entrar</button>
+</form>
+{% endblock %}

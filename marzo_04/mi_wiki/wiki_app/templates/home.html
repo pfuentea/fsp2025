@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mini Wiki
+{% endblock %}
+
+{% block titulo %}
+    <h1>MI WIKI</h1>
+{% endblock %}
+
+{% block contenido %}
+<div class="row">
+    <div class="col-3">
+        CATEGORIAS
+    </div>
+    <div class="col-9">
+        {% if q %}
+        Resultados
+        {% endif %}
+
+        <div class="row">
+            {% for a in page_obj %}
+            {{a.titulo}}
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

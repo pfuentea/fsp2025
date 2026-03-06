@@ -27,18 +27,16 @@ def home(request):
     if q:
         articulos = articulos.filter(Q(titulo__icontains=q) | Q(contenido__icontains=q))
 
-    paginator = Paginator(articulos, 6)  # 6 por página
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
+    
 
     categorias = Categoria.objects.all()
-
-    return render(request, "wiki/home.html", {
-        "page_obj": page_obj,
+    context={
         "q": q,
         "categorias": categorias,
         "categoria_slug": categoria_slug,
-    })
+    }
+
+    return render(request, "home.html", context=context)
 
 
 def category_list(request, slug):
@@ -47,11 +45,11 @@ def category_list(request, slug):
 
     paginator = Paginator(articulos, 6)
     page_obj = paginator.get_page(request.GET.get("page"))
-
-    return render(request, "wiki/category_list.html", {
+    context={
         "categoria": categoria,
         "page_obj": page_obj
-    })
+    }
+    return render(request, "category_list.html",context=context )
 
 
 def article_detail(request, slug):
@@ -66,11 +64,11 @@ def article_detail(request, slug):
         publicado=True,
         categoria=articulo.categoria
     ).exclude(pk=articulo.pk)[:5]
-
-    return render(request, "wiki/article_detail.html", {
+    context={
         "articulo": articulo,
         "relacionados": relacionados
-    })
+    }
+    return render(request, "article_detail.html",context=context )
 
 
 @login_required
@@ -86,11 +84,11 @@ def article_create(request):
         messages.error(request, "Revisa los errores del formulario.")
     else:
         form = ArticuloForm()
-
-    return render(request, "wiki/article_form.html", {
+    context= {
         "form": form,
         "modo": "crear",
-    })
+    }
+    return render(request, "article_form.html",context=context )
 
 
 @login_required
@@ -111,11 +109,12 @@ def article_edit(request, slug):
     else:
         form = ArticuloForm(instance=articulo)
 
-    return render(request, "wiki/article_form.html", {
+    context={
         "form": form,
         "modo": "editar",
         "articulo": articulo
-    })
+    }
+    return render(request, "article_form.html", context=context)
 
 
 @login_required
@@ -130,8 +129,10 @@ def article_delete(request, slug):
         articulo.delete()
         messages.success(request, "Artículo eliminado.")
         return redirect("home")
+    
+    context={"articulo": articulo}
 
-    return render(request, "wiki/article_confirm_delete.html", {"articulo": articulo})
+    return render(request, "article_confirm_delete.html", context=context)
 
 
 def register_view(request):
@@ -148,5 +149,7 @@ def register_view(request):
         messages.error(request, "Revisa el formulario.")
     else:
         form = RegisterForm()
-
-    return render(request, "wiki/register.html", {"form": form})
+    context= {
+            "form": form
+            }
+    return render(request, "register.html",context=context)
