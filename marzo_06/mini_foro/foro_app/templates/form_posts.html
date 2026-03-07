@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mini Foro - Login
+{% endblock %}
+
+{% block titulo %}
+    <h1>MI FORO</h1>
+{% endblock %}
+
+{% block contenido %}
+
+<h1>Posts</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Enviar</button>
+</form>
+
+{% endblock %}

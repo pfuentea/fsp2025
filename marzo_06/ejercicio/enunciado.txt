@@ -8,7 +8,7 @@ Objetivo:
 - Se pueden responder las respuestas
 - Deben mostrarse como un árbol
 
-MODELOS:
+MODELOS: 
 módelo POST:
 -Autor
 -titulo

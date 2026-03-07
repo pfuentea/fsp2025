@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mini Foro - Login
+{% endblock %}
+
+{% block titulo %}
+    <h1>MI FORO</h1>
+{% endblock %}
+
+{% block contenido %}
+
+<h1>Detalle del post :{{post.titulo}}</h1>
+
+Responder:
+<form action="{% url 'crear_respuesta' post_id=post.id  post_padre=post_padre.id %}" method="POST">
+{% csrf_token %}
+{{form.as_p}}
+<button>Enviar</button>
+</form>
+
+<h3>Respuestas</h3>
+{% for resp in respuestas_hijas %}
+    {% include 'respuesta.html' with respuesta=resp  %}
+
+{% empty %}
+    Aun no hay respuestas
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mini Foro - Login
+{% endblock %}
+
+{% block titulo %}
+    <h1>MI FORO</h1>
+{% endblock %}
+
+{% block contenido %}
+<h2>Últimos Posts</h2>
+    <ul>
+    {% for p in posts %}
+        <li>
+            <a href="{% url 'detalle_posts' p.id p.id %}">
+                {{p.titulo}}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
