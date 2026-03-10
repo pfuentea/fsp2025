@@ -4,6 +4,7 @@ from .views import CustomLoginViews,CustomLogoutView,register_view,profile_view,
 app_name="core_auth"
 
 urlpatterns=[
+    path("",CustomLoginViews.as_view(),name="login"),
     path("login/",CustomLoginViews.as_view(),name="login"),
     path("logout/",CustomLogoutView.as_view(),name="logout"),
     path("register/",register_view,name="register"),
