@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block contenido %}
+<div class="container">
+    <h2>Editar Perfil</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h4>Datos básicos:</h4>
+        {{user_form.as_p}}
+        <hr>
+        <h4>Información adicional:</h4>
+        {{profile_form.as_p}}
+
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        <a href="{% url 'core_auth:profile' %}" class="btn btn-secondary">Cancelar</a>
+
+    </form>
+
+
+</div>
+
+
+
+{% endblock %}

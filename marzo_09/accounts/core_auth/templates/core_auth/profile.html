@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block contenido %}
+<div class="container">
+    <h2>Mi perfil</h2>
+
+    <div class="card">
+        {% if request.user.profile.foto %}
+        <div class="mb-3">
+            <img src="{{ request.user.profile.foto.url }}" alt="" width="150" class="img-thumbnail">
+        </div>
+        {% endif %}
+
+        <p>Usuario: {{request.user.username}}</p>
+        <p>Nombre: {{request.user.first_name}} {{request.user.last_name}}</p>
+        <p>Correo: : {{request.user.email}}</p>
+        <p>Teléfono:  {{request.user.profile.telefono}}</p>
+        <p>Fecha Nacimiento:  {{request.user.profile.fecha_nacimiento}}</p>
+        <p>Biografia: {{request.user.profile.bio}}</p>
+        
+        <a href="{% url 'core_auth:profile_edit' %}" class="btn btn-info">Editar Perfil</a>
+        <form action="{% url 'core_auth:logout'%}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+        </form>
+
+    </div>
+
+
+</div>
+
+{% endblock %}

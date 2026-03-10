@@ -1,19 +1,16 @@
 
 <div class="row ms-4">
-<form action="{% url 'crear_respuesta' post_id=respuesta.id  post_padre=post_padre.id %}" method="POST">
-{% csrf_token %}
-<textarea name="contenido" id="contenido" rows="3" cols="40">
+    <form action="{% url 'crear_respuesta' post_id=respuesta.id  post_padre=post_padre.id %}" method="POST">
+    {% csrf_token %}
+    <textarea name="contenido" id="contenido" rows="3" cols="40">
 
-</textarea>
-<button>Responder</button>
-</form>
-<p>{{respuesta.contenido}} (<small>{{respuesta.autor.username}}</small>)</p>
+    </textarea>
+    <button>Responder</button>
+    </form>
+    <p>{{respuesta.contenido}} (<small>{{respuesta.autor.username}}</small>)</p>
 
-{% for resp in respuesta.hijos.all %}
-    {% include 'respuesta.html' with respuesta=resp %}
-
-
-{% endfor %}
-
+    {% for resp in respuesta.hijos.all %}
+        {% include 'respuesta.html' with respuesta=resp %}
+    {% endfor %}
 </div>
 
