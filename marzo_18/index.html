@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trabajo con el DOM</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"> </script>
+
+    </head>
+    <body>
+        <style>
+            h1 {
+                color:chocolate;
+            }
+        </style>
+        <script>
+            // aca poner el script
+            function validar(){
+                // estamos trabajando con el DOM
+                let rut=document.getElementById('rut').value;
+                let p1=document.getElementById('resultado');
+                if (validarRut(rut)) 
+                {
+                    p1.innerText="RUT es Válido";
+                }
+                else{
+                    p1.innerText="RUT es Incorrecto";
+                }
+            }
+            function cambiar_texto(){
+                let items1=document.getElementsByClassName("nivel_1");
+                let items2=document.getElementsByClassName("nivel_2");
+                // voy a tener dos  arreglos con los elementos de clase nivel_1 y nivel_2
+
+                for (let i=0;i < items1.length; i++){
+                    if(i%2==0){
+                        items1[i].style.color="blue";
+                    }
+                    else{
+                         items1[i].style.color="green";
+                    }
+                }
+                for (let i=0;i < items2.length; i++){
+                    items2[i].style.color="yellow";
+                }
+            }
+            function cambiar_parrafo(size){
+                let parrafos=document.getElementsByTagName("p")
+                let new_size=size+"px";
+                // obtengo un arreglo con todos los elementos de etiqueta p
+                for (let i=0;i < parrafos.length; i++){
+                    parrafos[i].style.fontSize=new_size;
+                }
+            }
+            
+        </script>
+
+        <div class="container">
+            <div class="row">
+                <div class="cols">
+
+                </div>
+                <div class="cols">
+                    
+                </div>
+                <div class="cols">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 style="text-decoration:underline;" >DOM : Document Object Model </h1>
+        <button onclick="cambiar_parrafo(30);">CAMBIAR ESTILO DE PARRAFO</button>
+        <button onclick="cambiar_parrafo(10);">REGRESAR ESTILO DE PARRAFO</button>
+        <p class="texto" id="parrafo01">Texto 1</p>
+        <p class="texto" id="parrafo02">Texto 2</p>
+      
+        <button onclick="cambiar_texto();">CAMBIAR COLOR DEL TEXTO LISTAS</button>
+        <etiqueta atributo="valor"> </etiqueta>
+        <ol>
+            <li class="nivel_1">item 1</li>
+            <li class="nivel_1">item 2</li>
+            <li class="nivel_1">item 3</li>
+            <li class="nivel_1">item 4</li>
+            <li class="nivel_1">
+                item 5
+                <ul>
+                    <li class="nivel_2">item 5.1</li>
+                    <li class="nivel_2">item 5.2</li>
+                </ul>
+            </li>
+            <li class="nivel_1">item 6</li>
+        </ol>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="text" name="rut" id="rut">
+                    </th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr>
+                    <td>
+                          <p id="resultado"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="validar();">Validar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+
+        <a href="http://" >Esto es un enlace</a>
+
+        <button>CAMBIAR TEXTO</button>
+
+        
+
+        
+    </body>
+</html>
+<!--
+    HTML-> BODY Y HEAD-> H1 ,P,P
+-->
+
+
+<xml>
+    <etiqueta1 atributos="valor" nombre="archivo" extension="xml"> 
+        <subetiqueta1>
+              texto - data  
+        </subetiqueta1>
+    </etiqueta1>
+</xml>
