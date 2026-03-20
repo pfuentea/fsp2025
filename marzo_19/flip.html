@@ -9,29 +9,126 @@
   src="https://code.jquery.com/jquery-4.0.0.min.js"
   integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
   crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-
-    <h1>MEMORICE </h1>
-
-    <div class="card">
-        <div class="card-inner">   
-            <div class="card-front">
-                FRENTE
-            </div>
-            <div class="card-back">
-                ATRAS
-            </div>
+<div class="container">
+    <div class="row ">
+        <div class="col text-center">
+            <h1>MEMORICE </h1>
         </div>
-        
     </div>
+    
+    <div class="tablero justify-content-center d-flex" id="tablero">
+
+    </div>
+    <div id="reinicio" class="text-center mt-3">
+        <button id="reset">Reiniciar</button>
+    </div>
+
+</div>
 
 <script>
     $(document).ready(function(){
-        $('.card').on('click',function(){
+
+        let cantidad_pares=3;
+        const frutas=['manzana','pera','durazno','uva'];
+        limpiar();
+        
+        function limpiar(){
+            $("#tablero").empty();
+            crear_tablero(cantidad_pares);
+            primeraCarta=null;
+            segundaCarta=null;
+            bloqueo=false;
+            pares_encontrados=0;
+            encontrados=[];
+            $('#reinicio').fadeOut();
+        }
+
+        function revolver(arreglo){
+            for(let i=arreglo.length-1 ;i>0;i--){
+                let j= Math.floor(Math.random()*(i+1));
+                [arreglo[i],arreglo[j]]=[arreglo[j],arreglo[i]];
+            }
+            return arreglo;
+        }
+
+        function crear_tablero(n_pares){
+            let frutas_seleccionadas=frutas.slice(0,n_pares);
+            let cartas=revolver([...frutas_seleccionadas,...frutas_seleccionadas]);
+            let ncols=Math.ceil(Math.sqrt(cartas.length));
+            console.log(cartas);
+
+            $("#tablero").css("grid-template-columns", `repeat(${ncols}, 90px)`);
+            if (window.innerWidth <= 600) {
+                $("#tablero").css("grid-template-columns", `repeat(${Math.min(ncols, 4)}, 70px)`);
+            }    
+
+            cartas.forEach((fruta, index) => {
+            let carta = $(`
+                <div class="carta activa mt-3 mx-auto" data-symbol="${fruta}" data-index="${index}" >              
+                    <div class="carta-inner">   
+                        <div class="carta-front">                       
+                        </div>
+                        <div class="carta-back">
+                            ${fruta}
+                        </div>
+                    </div>           
+                </div>
+            `);
+            $("#tablero").append(carta);
+            });
+        }
+        
+        $('#tablero').on('click','.activa',function(){
             $(this).toggleClass('flipped');
-        })
+
+            if (!primeraCarta){
+                primeraCarta=$(this);
+            }
+            else{
+                segundaCarta=$(this);
+                bloqueo=true;
+                
+                if(primeraCarta.data("symbol")===segundaCarta.data("symbol")){
+                    i1=primeraCarta.data("index");
+                    i2=segundaCarta.data("index");
+                    if(!encontrados.includes(i1) || !encontrados.includes(i2) ){
+                        encontrados.push(i1);
+                        encontrados.push(i2);
+                        primeraCarta.removeClass('activa');
+                        segundaCarta.removeClass('activa');
+                        reinicioTurno();
+                        pares_encontrados++;
+                    }
+                    
+                    if(pares_encontrados==cantidad_pares){
+                        $('#reinicio').fadeIn();
+                    }                   
+                }
+                else{
+                    setTimeout(()=>{
+                        primeraCarta.removeClass('flipped');
+                        segundaCarta.removeClass('flipped');
+                        reinicioTurno();
+                    },1000);
+                }
+                console.log(pares_encontrados);
+            }
+        });
+
+        $('#reset').on('click',function(){
+            limpiar();
+        });
+
+        function reinicioTurno(){
+            primeraCarta=null;
+            segundaCarta=null;
+            bloqueo=false;
+        }
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
