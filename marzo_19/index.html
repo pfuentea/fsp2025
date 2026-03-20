@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-4.0.0.min.js"
+  integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <p class="texto" id="parrafo01">Texto 1</p>
+    <p class="texto" id="parrafo02">Texto 2</p>
+    <p class="texto" id="parrafo03">Texto 3</p>
+    <div class="div_color">
+        DIV 1
+    </div>
+    
+    <button id="btn1">desaparecer</button>
+    <button id="btn2">aparecer</button>
+    <button id="btn3">alternar</button>
+
+<script>
+    $('#btn1').on('click',function(){
+        $('#parrafo01').hide();
+    });
+    $('#btn2').on('click',function(){
+        $('#parrafo01').show();
+    });
+    $('#btn3').on('click',function(){
+        $('#parrafo03').slideToggle();
+        $("div").animate({
+            left: '250px',
+            height: '+=150px',
+            width: '+=150px'
+        });
+    });
+    
+</script>
+
+</body>
+</html>

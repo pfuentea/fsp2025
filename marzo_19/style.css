@@ -1,0 +1,20 @@
+#parrafo01{
+    width: 100px;
+    height: 80px;
+    border: solid black 1px;
+}
+.texto{
+    color: crimson;
+}
+
+#parrafo03{
+    width: 100px;
+    height: 80px;
+    border: solid black 1px;
+    background-color: darkcyan;
+}
+.div_color{
+    background-color: burlywood;
+     width: 100px;
+     height: 80px;
+}
