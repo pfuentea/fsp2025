@@ -12,27 +12,26 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-    <div class="row ">
-        <div class="col text-center">
-            <h1>MEMORICE </h1>
+    <div class="container">
+        <div class="row ">
+            <div class="col text-center">
+                <h1>MEMORICE </h1>
+            </div>
+        </div>
+        <div class="tablero justify-content-center d-flex bg-success " id="tablero">
+
+        </div>
+        <div id="reinicio" class="text-center mt-3">
+            <button id="reset">Reiniciar</button>
         </div>
     </div>
-    
-    <div class="tablero justify-content-center d-flex" id="tablero">
-
-    </div>
-    <div id="reinicio" class="text-center mt-3">
-        <button id="reset">Reiniciar</button>
-    </div>
-
-</div>
 
 <script>
     $(document).ready(function(){
 
         let cantidad_pares=3;
         const frutas=['manzana','pera','durazno','uva'];
+
         limpiar();
         
         function limpiar(){
@@ -46,6 +45,7 @@
             $('#reinicio').fadeOut();
         }
 
+        // toma los primeros elementos, los revuelve y los duplica
         function revolver(arreglo){
             for(let i=arreglo.length-1 ;i>0;i--){
                 let j= Math.floor(Math.random()*(i+1));
@@ -67,7 +67,7 @@
 
             cartas.forEach((fruta, index) => {
             let carta = $(`
-                <div class="carta activa mt-3 mx-auto" data-symbol="${fruta}" data-index="${index}" >              
+                <div class="carta activa mt-3 mb-3 mx-auto" data-symbol="${fruta}" data-index="${index}" >              
                     <div class="carta-inner">   
                         <div class="carta-front">                       
                         </div>
