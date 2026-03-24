@@ -2,7 +2,7 @@ from django.shortcuts import render
 import requests
 from django.http import JsonResponse
 # Create your views here.
-
+# https://www.weatherapi.com/
 API_KEY=''
 
 def dashboard(request):
