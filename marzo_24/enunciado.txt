@@ -1,0 +1,42 @@
+Tenemos un juego, en el cual tenemos un personaje:
+-el juego puede tener muchos personajes
+-personajes tiene nombre y puntos de vida
+-los personajes pueden realizar acciones: atacar, recibir daño
+
+
+¿Cómo representar esto sin usar POO?
+- pseudocodigo
+- programación funcional : funciones, variables 
+- listas o diccionarios para guardar datos de los personajes
+- diccionarios con sus acciones
+- usar set o tuplas para llevar registro de los datos
+
+PILARES DE LA POO:
+----- ABSTRACCION : obtener lo escencial del problema y definir un objeto a partir de esta información.
+
+----- ENCAPSULAMIENTO: es el procedimiento de proteger la información del objeto de manipulación externa.
+
+----- HERENCIA : crear nuevas clases a partir de una clase inicial
+->clase padre, primitiva, inicial
+->clase hijo, derivada, 
+
+al utilizar la herencia estamos reutilizando código 
+=>
+menos errores
+menos código
+mejor mantenibilidad
+vamos a poder modularizar (código ordenado)
+escalabilidad
+
+------ POLIMORFISMO : poli : muchas - morfo : formas
+Muchos comportamientos con el mismo método (mismo nombre método)
+
+Métodos de instancia: 
+Necesitan de la creación del objeto para poder utilizarlos.
+
+Método Clase: 
+Podemos usar atributos de clase y no necesitamos tener una instancia para usarlo.
+
+Métodos estáticos:
+no necesitamos tener una instancia para usarlo. Se usan regularmente para validaciones o procedimientos asociados a la clase.
+

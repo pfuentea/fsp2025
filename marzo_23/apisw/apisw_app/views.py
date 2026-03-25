@@ -9,7 +9,8 @@ def dashboard(request):
 
     url_base='http://api.weatherapi.com/v1'
 
-    url_base='http://api.weatherapi.com/v1/current.json?q=Valdivia&aqi=no'
+    url_base=f'http://api.weatherapi.com/v1/current.json?key={API_KEY}q=Valdivia&aqi=no'
+    
     headers={
         "Authorization":f"Bearer {API_KEY}"
     }
