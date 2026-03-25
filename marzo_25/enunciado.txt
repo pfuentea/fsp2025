@@ -1,0 +1,23 @@
+Desarrollar un sistema de juegos utilizando Programación Orientada a Objetos (POO) en Python, aplicando conceptos como:
+
+-Clases y objetos
+-Encapsulamiento
+-Reutilización de código
+-Separación de responsabilidades
+
+Se desea construir un sistema de juegos basado en el lanzamiento de dados.
+Un jugador lanza 2 dados, gana si ambos dados tienen el mismo valor
+
+Instrucciones:
+Crear la clase Dado, un atributo para la cantidad de caras, un atributo para almacenar el valor obtenido al lanzar
+Métodos:
+-lanzar()
+-obtener_valor()
+
+Crear el código del juego:
+-crear una clase JuegoDobles
+
+Crear parte principal donde se puede elegir el juego
+-crear metodo main para comenzar desde ahí la ejecución.
+
+
