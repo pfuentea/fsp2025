@@ -1,0 +1,52 @@
+1.- ARQUITECTURA DJANGO
+Django utiliza un patrón MVT: Modelo-vista-template
+
+2.- MODELOS -> TRADUCCIÓN DE UNA CLASE A UNA TABLA
+CLASES (POO) ->TABLAS DE LA BD
+ATRIBUTOS -> Columnas-campos
+INSTANCIAS -> Fila, registro
+
+2.1- ORM (OBJECT RELATIONAL MODEL)
+- DML de SQL = consultas, modificaciones, eliminacion,creación de registro
+consultas: filtros, agrupaciones, subconjuntos, join (unión, interseccion, diferencia, diferencia simetrica) , existencia.
+
+2.2 MIGRACIONES: 
+a.- guardan el historial de las modificaciones del Modelo
+b.- generar la traducción desde el modelo hacia la base de datos.
+
+3.- VISTAS:
+Son el cerebro de nuestra APP
+- toda la lógica de negocio de la APP.
+- se comunica con el modelo
+- entrega como resultado la visualización "TEMPLATE"
+
+4.- RUTAS: URLS
+- listado de recursos a los que podemos acceder dentro de la APP (llamadas a métodos y vistas)
+
+5.- TEMPLATES:
+Aportan la visualización como resultado del procesacmiento que hizo la VIEW.
+
+6.- FORMULARIOS:
+- Traducción entre el modelo y un formulario html
+- Importante: trabajan con metodos http POST,GET 
+
+7.- AUTENTICACION:
+- Un modelo para creación de Usuarios
+- Login
+- Register
+- Logout
+- decoradores para proteger urls @login_required
+
+8.- INTEGRACION CON OTRAS APPS
+- En Django es fácil realizar la integración con otras APPS
+
+9.- SEGURIDAD:
+- decoradores para proteger urls @login_required
+- csrf_token , para evitar el hackeo de CSRF 
+- password encriptadas 
+
+
+
+
+
+   
