@@ -1,0 +1,107 @@
+1.-Que es una BD relacional
+Sistema para guardar informacion de manera ordenada y poder consultarla y/o modificarla.
+
+2.-BD, esquema, tablas, filas y columnas.
+SGBD: Sistema de gestión de base de datos, motores de base de datos (Mysql, Oracle, SQL Server, POstgres, Bigquery)
+Tablas: es el elemento principal de una BD. La cual esta compuesta por columnas, que guardan las caracteristicas de elemento a guardar. Y tenemos las FILAS, que corresponden a 1 elemento por cada fila. Celdas son la intersección de las columnas y filas donde guardamos un pedazo de la información del registro.
+
+3.-Tipos de datos
+    a.-números(int,float,bigint,tinyint,binary)
+    b.-texto (char,varchar,text)
+    c.-Boolean(True,False)
+    d.-Json
+    e.-Geoespaciales (latitud, longitud, altura)
+    f.-figuras geometricas
+    g.-imagenes
+    h.-Objetos (instancias de una clase)
+    i.-Fecha (date, datetime,timestamp,hour)
+
+4.-Llaves primarias y foráneas
+    Primaria: es un identificador único dentro de la tablas
+    Foráneas: identificador entre una tabla y otra (relaciones)
+
+5.-Restricciones
+    vamos a resguardar la coherencia de los datos.
+    NOT NULL, PRIMARY KEY,UNIQUE,FOREIGN KEY,DEFAULT
+
+6.-Operaciones CRUD
+    -INSERT: insertar uno o más registros
+    -SELECT: buscar uno o más registros
+    -UPDATE: actualizar uno o más registros
+    -DELETE: eliminar uno o más registros
+
+7.-Consultas (lenguaje SQL = Structured Query Language)
+    SELECT campos  (*= todos los campos)
+    FROM tabla
+
+    SELECT nombre,apellido,edad,direccion
+    FROM Clientes 
+
+8.-Uso de WHERE,ORDER BY, LIMIT
+Para traer un subcojunto de datos a través de una condición
+
+SELECT campos  (*= todos los campos)
+FROM tabla
+WHERE condicion_logica (AND-OR-NOT), (IN- NOT IN) ,(BETWEEN valor_mínino y valor_máximo) , (campo LIKE condición ),(IS NULL, IS NOT NULL)
+ORDER BY (condicion de orden, por un campo ASC o DESC)
+LIMIT cantidad_registro
+
+9.-Funciones de agregación
+COUNT: para contar los registros
+MAX y MIN: para el máximo y mínimo
+AVG: promedio
+SUM: suma de los registros
+
+10.-Agrupacion con GROUP BY y filtrado con HAVING
+
+SELECT campo_a_agrupar, COUNT(otro_campo)
+FROM tabla
+WHERE condicion_logica
+GROUP BY campo_a_agrupar
+HAVING condicion_agrupada,  ejemplo: SUM(CAMPO)>10000
+
+11.-Relaciones y JOIN 
+
+SELECT campos_tabla_1,campos_tabla_2
+FROM tabla_1 
+INNER JOIN tabla_2 ON (tabla_1.id=tabla_2.fk_tabla_1)
+
+- LEFT JOIN , RIGHT JOIN 
+- OUTER JOIN
+
+los registros que son IGUALES "se juntan"
+SELECT campos_tabla_1 (entero,texto,boolean)
+FROM tabla_1 
+UNION
+SELECT campos_tabla_2 (entero,texto,boolean)
+FROM tabla_2 
+
+los registros que son IGUALES "se duplican"
+SELECT campos_tabla_1 (entero,texto,boolean)
+FROM tabla_1 
+UNION ALL
+SELECT campos_tabla_2 (entero,texto,boolean)
+FROM tabla_2 
+
+12.-DELETE, TRUNCATE, DROP 
+DELETE : eliminamos uno o más registros de una tabla
+TRUNCATE: eliminamos TODOS los registros de una tabla
+DROP : Eliminamos tabla (estructura) y datos
+
+
+13.-Transacciones
+BEGIN 
+transaccion (insert,delete,update,select)
+
+en caso de que la transacción sea exitosa ->COMMIT (confirmación)
+en caso de que la transacción NO sea exitosa -> ROLLBACK (confirmación)
+
+BEGIN 
+transaccion_1;
+transaccion_2;
+COMMIT;
+
+14.- DDL: data definition Language (CREATE,ALTER,DROP,MODIFY)
+     DML: data manipulation language (UPDATE,INSERT,DELETE,TRUNCATE)
+
+
